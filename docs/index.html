@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kit Profesional de Psicología | Pastel Tech Platform</title>
+  <title>Kit Profesional de Psicología | Plataforma Educativa Interactiva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --rosa-pastel: #F8E8F1;
-      --lavanda-suave: #E8DFF8;
+      --lavanda: #E8DFF8;
       --azul-cielo: #DCEBFA;
       --verde-menta: #DDF3EB;
       --durazno: #FFF0DC;
@@ -18,15 +18,20 @@
       --pure-white: #FFFFFF;
       --texto-principal: #343247;
       --texto-secundario: #77758A;
-      --acento-lavanda: #9883db;
-      --acento-rosa: #e38eb8;
-      --acento-azul: #6eaee6;
-      --acento-menta: #55b89a;
-      --borde-suave: rgba(220, 215, 235, 0.45);
-      --glass-bg: rgba(255, 255, 255, 0.72);
-      --shadow-sm: 0 4px 16px rgba(119, 117, 138, 0.05);
-      --shadow-md: 0 10px 30px rgba(119, 117, 138, 0.07);
-      --shadow-lg: 0 20px 45px rgba(152, 131, 219, 0.10);
+      --acento-lavanda: #947be2;
+      --acento-rosa: #e587b4;
+      --acento-azul: #5ea7ea;
+      --acento-menta: #43b393;
+      --acento-durazno: #f4a261;
+      --border-subtle: rgba(220, 215, 235, 0.6);
+      --glass-surface: rgba(255, 255, 255, 0.82);
+      --shadow-soft: 0 8px 24px rgba(119, 117, 138, 0.06);
+      --shadow-hover: 0 16px 36px rgba(148, 123, 226, 0.12);
+      --shadow-glow: 0 0 40px rgba(232, 223, 248, 0.7);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-full: 9999px;
     }
 
     * {
@@ -44,1113 +49,1675 @@
       position: relative;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 10% 15%, rgba(248, 232, 241, 0.7) 0%, transparent 40%),
-        radial-gradient(circle at 90% 25%, rgba(220, 235, 250, 0.7) 0%, transparent 45%),
-        radial-gradient(circle at 50% 60%, rgba(232, 223, 248, 0.5) 0%, transparent 50%),
-        radial-gradient(circle at 80% 85%, rgba(221, 243, 235, 0.6) 0%, transparent 40%);
+        radial-gradient(circle at 5% 10%, rgba(248, 232, 241, 0.85) 0%, transparent 35%),
+        radial-gradient(circle at 95% 20%, rgba(220, 235, 250, 0.85) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(232, 223, 248, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(221, 243, 235, 0.7) 0%, transparent 35%),
+        radial-gradient(circle at 15% 90%, rgba(255, 240, 220, 0.7) 0%, transparent 35%);
       background-attachment: fixed;
     }
 
-    /* Ambient AI floating background elements */
-    .ambient-glow {
+    /* Ambient Floating Blobs */
+    .ambient-blob {
       position: absolute;
-      width: 450px;
-      height: 450px;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(90px);
       z-index: -1;
       pointer-events: none;
-      opacity: 0.65;
+      opacity: 0.7;
     }
-    .glow-1 { top: -100px; left: -100px; background: linear-gradient(135deg, var(--rosa-pastel), var(--lavanda-suave)); }
-    .glow-2 { top: 600px; right: -120px; background: linear-gradient(135deg, var(--azul-cielo), var(--verde-menta)); }
-    .glow-3 { bottom: 300px; left: 10%; background: linear-gradient(135deg, var(--lavanda-suave), var(--durazno)); }
+    .blob-1 { top: -80px; left: -100px; width: 500px; height: 500px; background: linear-gradient(135deg, var(--rosa-pastel), var(--lavanda)); }
+    .blob-2 { top: 750px; right: -120px; width: 550px; height: 550px; background: linear-gradient(135deg, var(--azul-cielo), var(--verde-menta)); }
+    .blob-3 { top: 2200px; left: -100px; width: 600px; height: 600px; background: linear-gradient(135deg, var(--lavanda), var(--durazno)); }
 
-    /* Navigation Bar */
-    nav {
-      position: sticky;
-      top: 1.5rem;
-      z-index: 100;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    .nav-container {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--borde-suave);
-      border-radius: 999px;
-      padding: 0.75rem 1.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--texto-principal);
-      text-decoration: none;
-      letter-spacing: -0.3px;
-    }
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--acento-rosa), var(--acento-lavanda));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 10px rgba(152, 131, 219, 0.25);
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--texto-secundario);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover {
-      color: var(--acento-lavanda);
-    }
-    .btn-nav {
-      background: linear-gradient(135deg, #a48fed, #ec9dc0);
-      color: white !important;
-      padding: 0.45rem 1.2rem;
-      border-radius: 999px;
-      font-size: 0.85rem !important;
-      box-shadow: 0 4px 12px rgba(164, 143, 237, 0.28);
-      transition: transform 0.2s, box-shadow 0.2s !important;
-    }
-    .btn-nav:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(164, 143, 237, 0.38);
-    }
-
-    /* Container */
+    /* Layout Containers */
     .container {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
     }
 
-    /* Hero Section */
-    .hero {
-      padding: 4.5rem 0 3.5rem 0;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+    /* Header & Navigation */
+    header.site-nav {
+      position: sticky;
+      top: 1.25rem;
+      z-index: 1000;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .nav-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 3rem;
+      box-shadow: var(--shadow-soft);
     }
-    .hero-content {
-      max-width: 600px;
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--texto-principal);
+      font-weight: 800;
+      font-size: 1.1rem;
+      font-family: 'Outfit', sans-serif;
     }
-    .pill-badge {
+    .brand-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f7a8cd, #9c84e8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(156, 132, 232, 0.35);
+    }
+    .nav-menu {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--texto-secundario);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover {
+      color: var(--acento-lavanda);
+    }
+    .btn-badge-link {
+      background: linear-gradient(135deg, #9c84e8, #f7a8cd);
+      color: white !important;
+      padding: 0.5rem 1.3rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem !important;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(156, 132, 232, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s !important;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--borde-suave);
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
+      gap: 0.4rem;
+    }
+    .btn-badge-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(156, 132, 232, 0.42);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 4rem 0 3rem 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 0.4rem 1.1rem;
       font-size: 0.82rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--acento-lavanda);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-soft);
       margin-bottom: 1.5rem;
     }
-    .pill-sparkle {
+    .hero-sparkle {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--acento-rosa), var(--acento-lavanda));
-      display: inline-block;
-      animation: pulseSparkle 2s infinite ease-in-out;
+      box-shadow: 0 0 10px var(--acento-rosa);
+      animation: sparkle 2s infinite ease-in-out;
     }
-    @keyframes pulseSparkle {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
       50% { transform: scale(1.4); opacity: 1; }
     }
-    .hero h1 {
+    .hero-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--texto-principal);
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.12;
       letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.4rem;
     }
-    .hero h1 .gradient-text {
-      background: linear-gradient(135deg, #7c64d8 0%, #d8709e 50%, #4a9be6 100%);
+    .gradient-word {
+      background: linear-gradient(135deg, #7c5ce5 0%, #db6b9f 50%, #469fe8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .hero p {
-      font-size: 1.1rem;
+    .hero-desc {
+      font-size: 1.12rem;
       color: var(--texto-secundario);
       margin-bottom: 2.2rem;
       font-weight: 400;
+      line-height: 1.7;
     }
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, #9782ec 0%, #e895b9 100%);
+    .btn-cta-primary {
+      background: linear-gradient(135deg, #947be2 0%, #e587b4 100%);
       color: white;
       text-decoration: none;
-      padding: 0.85rem 1.85rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      padding: 0.95rem 2rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.98rem;
+      box-shadow: 0 10px 28px rgba(148, 123, 226, 0.32);
+      transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      box-shadow: 0 8px 24px rgba(151, 130, 236, 0.3);
-      transition: all 0.25s ease;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(151, 130, 236, 0.42);
+    .btn-cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(148, 123, 226, 0.42);
     }
-    .btn-secondary {
-      background: var(--glass-bg);
+    .btn-cta-secondary {
+      background: white;
       color: var(--texto-principal);
       text-decoration: none;
-      padding: 0.85rem 1.6rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid var(--borde-suave);
-      box-shadow: var(--shadow-sm);
+      padding: 0.95rem 1.8rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.98rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
       transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .btn-secondary:hover {
-      background: white;
+    .btn-cta-secondary:hover {
+      background: #faf8fd;
       transform: translateY(-2px);
     }
 
-    /* 3D Glass Hero Mockup / Composition */
-    .hero-visual {
+    /* 3D Visual Composition in Hero */
+    .hero-graphic-wrap {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .visual-card-main {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 28px;
-      padding: 2rem;
+    .glass-hub-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
       width: 100%;
-      max-width: 420px;
-      box-shadow: var(--shadow-lg);
+      max-width: 440px;
+      box-shadow: var(--shadow-hover);
       position: relative;
       z-index: 2;
     }
-    .visual-header {
+    .hub-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--borde-suave);
-      padding-bottom: 1rem;
-    }
-    .status-chip {
-      display: flex;
       align-items: center;
-      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .hub-badge {
       background: var(--verde-menta);
       color: #2b7d63;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .pulse-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #2b7d63;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
-    }
-    .chip-item {
-      background: white;
-      border: 1px solid var(--borde-suave);
-      border-radius: 16px;
-      padding: 0.9rem 1rem;
-      margin-bottom: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s;
+      gap: 0.35rem;
     }
-    .chip-item:hover {
-      transform: translateX(4px);
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2b7d63;
+      animation: pulseLive 1.8s infinite;
     }
-    .chip-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
+    @keyframes pulseLive {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    .hub-item {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s ease;
+    }
+    .hub-item:hover {
+      transform: translateX(6px);
+    }
+    .hub-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
+      flex-shrink: 0;
     }
-    .chip-1 .chip-icon { background: var(--rosa-pastel); color: #c45b8a; }
-    .chip-2 .chip-icon { background: var(--lavanda-suave); color: #725bb8; }
-    .chip-3 .chip-icon { background: var(--azul-cielo); color: #377eb8; }
+    .icon-h1 { background: var(--rosa-pastel); color: #be467a; }
+    .icon-h2 { background: var(--azul-cielo); color: #276fa9; }
+    .icon-h3 { background: var(--durazno); color: #9c5c16; }
 
-    .chip-text h4 {
-      font-size: 0.88rem;
-      font-weight: 600;
+    .hub-details h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
       color: var(--texto-principal);
     }
-    .chip-text p {
-      font-size: 0.76rem;
+    .hub-details p {
+      font-size: 0.78rem;
       color: var(--texto-secundario);
-      margin: 0;
     }
 
     /* Floating Badges */
-    .float-badge {
+    .floating-pill {
       position: absolute;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--borde-suave);
-      border-radius: 18px;
-      padding: 0.75rem 1.1rem;
-      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      box-shadow: var(--shadow-hover);
       z-index: 3;
-      animation: floatSmooth 6s ease-in-out infinite;
+      animation: floatMotion 5s ease-in-out infinite;
     }
-    .float-top {
-      top: -20px;
-      right: -25px;
+    .float-gemini {
+      top: -24px;
+      right: -24px;
       animation-delay: 0s;
     }
-    .float-bottom {
-      bottom: -25px;
-      left: -25px;
+    .float-ethics {
+      bottom: -28px;
+      left: -28px;
       animation-delay: 2.5s;
     }
-    @keyframes floatSmooth {
+    @keyframes floatMotion {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-10px); }
     }
 
-    /* Ethics Banner */
-    .ethics-box {
-      background: linear-gradient(135deg, rgba(232, 223, 248, 0.45) 0%, rgba(220, 235, 250, 0.45) 100%);
-      border: 1px solid rgba(220, 215, 235, 0.6);
-      border-radius: 20px;
-      padding: 1.5rem 2rem;
-      margin: 3.5rem 0;
-      backdrop-filter: blur(10px);
+    /* Framework Ethics Banner */
+    .ethics-strip {
+      background: linear-gradient(135deg, rgba(232, 223, 248, 0.5) 0%, rgba(220, 235, 250, 0.5) 100%);
+      border: 1px solid rgba(220, 215, 235, 0.7);
+      border-radius: var(--radius-md);
+      padding: 1.6rem 2.2rem;
+      margin: 3.5rem 0 4.5rem 0;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      box-shadow: var(--shadow-sm);
+      gap: 1.6rem;
+      box-shadow: var(--shadow-soft);
     }
-    .ethics-icon {
-      font-size: 2rem;
+    .ethics-emblem {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
       background: white;
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 2rem;
       flex-shrink: 0;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-soft);
     }
-    .ethics-text h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--texto-principal);
-      margin-bottom: 0.25rem;
-    }
-    .ethics-text p {
-      font-size: 0.92rem;
-      color: var(--texto-secundario);
-      margin: 0;
-    }
-
-    /* Section Headers */
-    .section-header {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 3rem auto;
-    }
-    .section-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--acento-lavanda);
-      background: var(--lavanda-suave);
-      padding: 0.25rem 0.8rem;
-      border-radius: 999px;
-      display: inline-block;
-      margin-bottom: 0.8rem;
-    }
-    .section-title {
+    .ethics-content h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 2.3rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--texto-principal);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.3rem;
     }
-    .section-desc {
-      font-size: 1.02rem;
+    .ethics-content p {
+      font-size: 0.94rem;
       color: var(--texto-secundario);
     }
 
-    /* 3 Tools Grid */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-bottom: 5rem;
+    /* Section Styling */
+    .section-wrap {
+      margin-bottom: 6rem;
     }
-    .pastel-card {
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--borde-suave);
-      border-radius: 24px;
-      padding: 2.2rem 1.9rem;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem auto;
+    }
+    .tag-category {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--acento-lavanda);
+      background: var(--lavanda);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 0.85rem;
+    }
+    .section-headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+      color: var(--texto-principal);
+    }
+    .section-subtext {
+      font-size: 1.05rem;
+      color: var(--texto-secundario);
+    }
+
+    /* 3 Interactive Tools Suite */
+    .tools-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .tool-box {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.4rem 2rem;
+      box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .pastel-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(152, 131, 219, 0.35);
+    .tool-box:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(148, 123, 226, 0.4);
     }
-    .card-accent-top {
+    .tool-color-bar {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 6px;
+      height: 7px;
     }
-    .card-h1 .card-accent-top { background: linear-gradient(90deg, #f3a8cb, #e5b9f4); }
-    .card-h2 .card-accent-top { background: linear-gradient(90deg, #b0d4f9, #c1f0e2); }
-    .card-h3 .card-accent-top { background: linear-gradient(90deg, #ffd39a, #f7b4c6); }
+    .box-1 .tool-color-bar { background: linear-gradient(90deg, #f7a8cd, #c3b2f5); }
+    .box-2 .tool-color-bar { background: linear-gradient(90deg, #9ac7f5, #9ce8d0); }
+    .box-3 .tool-color-bar { background: linear-gradient(90deg, #fbd29c, #f7a8cd); }
 
-    .card-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
+    .tool-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 1.25rem;
-      align-self: flex-start;
     }
-    .card-h1 .card-badge { background: var(--rosa-pastel); color: #a93c71; }
-    .card-h2 .card-badge { background: var(--azul-cielo); color: #28689f; }
-    .card-h3 .card-badge { background: var(--durazno); color: #9f651a; }
+    .tool-flag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 0.3rem 0.85rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .box-1 .tool-flag { background: var(--rosa-pastel); color: #ad316c; }
+    .box-2 .tool-flag { background: var(--azul-cielo); color: #1f649f; }
+    .box-3 .tool-flag { background: var(--durazno); color: #9a5912; }
 
-    .card-icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
+    .skill-empowered {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--texto-secundario);
+      background: #faf8fd;
+      border: 1px solid var(--border-subtle);
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+    }
+
+    .tool-symbol {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.25rem;
-      box-shadow: var(--shadow-sm);
+      font-size: 1.6rem;
+      margin-bottom: 1.3rem;
+      box-shadow: var(--shadow-soft);
     }
-    .card-h1 .card-icon-box { background: linear-gradient(135deg, #FFF, var(--rosa-pastel)); }
-    .card-h2 .card-icon-box { background: linear-gradient(135deg, #FFF, var(--azul-cielo)); }
-    .card-h3 .card-icon-box { background: linear-gradient(135deg, #FFF, var(--durazno)); }
+    .box-1 .tool-symbol { background: linear-gradient(135deg, white, var(--rosa-pastel)); }
+    .box-2 .tool-symbol { background: linear-gradient(135deg, white, var(--azul-cielo)); }
+    .box-3 .tool-symbol { background: linear-gradient(135deg, white, var(--durazno)); }
 
-    .pastel-card h3 {
-      font-size: 1.25rem;
+    .tool-box h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
       font-weight: 700;
-      color: var(--texto-principal);
       margin-bottom: 0.75rem;
-      line-height: 1.35;
+      line-height: 1.3;
     }
-    .pastel-card p {
-      font-size: 0.93rem;
+    .tool-box p.tool-desc {
+      font-size: 0.94rem;
       color: var(--texto-secundario);
       margin-bottom: 1.5rem;
       flex-grow: 1;
     }
-    .card-features {
+    .learn-points {
       list-style: none;
-      border-top: 1px solid var(--borde-suave);
-      padding-top: 1.2rem;
-      margin-top: auto;
+      background: rgba(252, 250, 247, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.6rem;
     }
-    .card-features li {
+    .learn-points li {
       font-size: 0.84rem;
-      color: var(--texto-secundario);
+      color: var(--texto-principal);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
       margin-bottom: 0.4rem;
     }
-    .card-features li::before {
+    .learn-points li:last-child { margin-bottom: 0; }
+    .learn-points li::before {
       content: "✦";
       color: var(--acento-lavanda);
-      font-size: 0.75rem;
+      font-weight: 800;
     }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 5rem;
-    }
-    .skill-card {
-      background: white;
-      border: 1px solid var(--borde-suave);
-      border-radius: 20px;
-      padding: 1.8rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.25s, box-shadow 0.25s;
-      position: relative;
-    }
-    .skill-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(152, 131, 219, 0.4);
-    }
-    .skill-header {
+    .btn-open-workspace {
+      width: 100%;
+      background: linear-gradient(135deg, #a28dec, #f29bbd);
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(162, 141, 236, 0.28);
+      transition: all 0.2s ease;
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.1rem;
-    }
-    .skill-icon-bubble {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--lavanda-suave), var(--rosa-pastel));
-      display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
-      color: var(--acento-lavanda);
-      flex-shrink: 0;
-    }
-    .skill-header h3 {
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--texto-principal);
-    }
-    .skill-card p {
-      font-size: 0.91rem;
-      color: var(--texto-secundario);
-      line-height: 1.6;
-    }
-
-    /* Telegram Agent Section */
-    .telegram-showcase {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 232, 241, 0.4) 100%);
-      border: 1px solid var(--borde-suave);
-      border-radius: 32px;
-      padding: 3.5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
       align-items: center;
-      gap: 3.5rem;
-      margin-bottom: 5rem;
-      box-shadow: var(--shadow-md);
-      position: relative;
-    }
-    .tg-content h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.3rem;
-      font-weight: 700;
-      color: var(--texto-principal);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    .tg-content p {
-      font-size: 1.02rem;
-      color: var(--texto-secundario);
-      margin-bottom: 1.75rem;
-    }
-    .command-tag-group {
-      display: flex;
-      flex-wrap: wrap;
       gap: 0.5rem;
+    }
+    .btn-open-workspace:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(162, 141, 236, 0.4);
+    }
+
+    /* Interactive Educational Workspaces (Dynamic Canvas) */
+    .interactive-workspace-container {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.8rem 2.4rem;
+      box-shadow: var(--shadow-hover);
+      margin-top: 2rem;
+      display: none;
+      position: relative;
+      animation: fadeIn 0.35s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .workspace-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
     }
-    .command-tag {
-      background: white;
-      border: 1px solid var(--borde-suave);
-      padding: 0.35rem 0.8rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-family: monospace;
-      font-weight: 600;
-      color: var(--acento-lavanda);
-      box-shadow: var(--shadow-sm);
+    .ws-title-group h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
     }
-
-    /* Telegram Mockup Phone/Card */
-    .tg-mockup {
-      background: white;
-      border: 1px solid var(--borde-suave);
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .tg-mockup-header {
-      background: linear-gradient(135deg, #a48fed, #7ea6ea);
-      padding: 1.1rem 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      color: white;
-    }
-    .tg-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .tg-info h4 { font-size: 0.95rem; font-weight: 700; }
-    .tg-info span { font-size: 0.75rem; opacity: 0.9; }
-    .tg-chat-body {
-      background: #faf8fc;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .bubble {
-      max-width: 82%;
-      padding: 0.8rem 1.1rem;
-      border-radius: 18px;
-      font-size: 0.86rem;
-      line-height: 1.5;
-    }
-    .bubble-user {
-      align-self: flex-end;
-      background: linear-gradient(135deg, #9782ec, #b698f2);
-      color: white;
-      border-bottom-right-radius: 4px;
-      box-shadow: 0 4px 12px rgba(151, 130, 236, 0.2);
-    }
-    .bubble-bot {
-      align-self: flex-start;
-      background: white;
-      border: 1px solid var(--borde-suave);
-      color: var(--texto-principal);
-      border-bottom-left-radius: 4px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* Community / Reviews Section */
-    .community-section {
-      margin-bottom: 5rem;
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 3.5rem;
-    }
-    .review-card {
-      background: white;
-      border: 1px solid var(--borde-suave);
-      border-radius: 20px;
-      padding: 1.8rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .stars {
-      color: #E6B566;
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
-      letter-spacing: 2px;
-    }
-    .review-text {
+    .ws-title-group p {
       font-size: 0.92rem;
       color: var(--texto-secundario);
-      font-style: italic;
-      margin-bottom: 1.25rem;
     }
-    .reviewer {
+    .btn-close-ws {
+      background: #faf8fd;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1.1rem;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      color: var(--texto-secundario);
+      transition: background 0.2s;
+    }
+    .btn-close-ws:hover {
+      background: #f1edfa;
+      color: var(--texto-principal);
+    }
+
+    /* Interactive Step Flow */
+    .activity-card {
+      background: #faf9fd;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .activity-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--texto-principal);
+    }
+    .options-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+    .opt-btn {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.93rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--texto-principal);
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
-    .reviewer-avatar {
-      width: 36px;
-      height: 36px;
+    .opt-btn:hover {
+      border-color: var(--acento-lavanda);
+      background: #fbf9fe;
+      transform: translateX(4px);
+    }
+    .opt-btn.correct {
+      background: #ebfaf4;
+      border-color: #3bb28c;
+      color: #1f6b53;
+      font-weight: 700;
+    }
+    .opt-btn.incorrect {
+      background: #fdf0f4;
+      border-color: #e87b9c;
+      color: #9c2748;
+    }
+    .feedback-banner {
+      display: none;
+      margin-top: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .feedback-banner.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .feedback-banner.success {
+      background: #e8f9f2;
+      border: 1px solid #7cd4b7;
+      color: #1a644d;
+    }
+    .feedback-banner.warning {
+      background: #fff8eb;
+      border: 1px solid #f6cf8a;
+      color: #8c5b0c;
+    }
+
+    /* Live Output Box */
+    .console-preview-box {
+      background: #252333;
+      color: #ede9f6;
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      max-height: 280px;
+      overflow-y: auto;
+      margin-top: 1rem;
+      white-space: pre-wrap;
+    }
+
+    /* Telegram Agent Section */
+    .agent-spotlight {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 232, 241, 0.5) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      align-items: center;
+      gap: 3.5rem;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+      margin-bottom: 6rem;
+    }
+    .tg-chat-frame {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+    }
+    .tg-bar {
+      background: linear-gradient(135deg, #9f87ec, #7fa5ee);
+      color: white;
+      padding: 1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .tg-profile-pic {
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: var(--durazno);
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      color: #9f651a;
-      font-size: 0.85rem;
-    }
-    .reviewer-info h5 { font-size: 0.88rem; font-weight: 700; color: var(--texto-principal); }
-    .reviewer-info span { font-size: 0.76rem; color: var(--texto-secundario); }
-
-    /* Elegant Comment Box */
-    .comment-form-card {
-      background: white;
-      border: 1px solid var(--borde-suave);
-      border-radius: 24px;
-      padding: 2.2rem;
-      max-width: 650px;
-      margin: 0 auto;
-      box-shadow: var(--shadow-md);
-    }
-    .comment-form-card h4 {
-      font-family: 'Outfit', sans-serif;
       font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--texto-principal);
-      margin-bottom: 0.5rem;
-      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     }
-    .comment-form-card p {
-      font-size: 0.9rem;
+    .tg-profile-info h4 { font-size: 0.96rem; font-weight: 700; }
+    .tg-profile-info span { font-size: 0.76rem; opacity: 0.9; }
+    .tg-conversation {
+      background: #faf8fc;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+    .speech-bubble {
+      max-width: 85%;
+      padding: 0.85rem 1.15rem;
+      border-radius: 18px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .speech-user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, #947be2, #ba9af5);
+      color: white;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 14px rgba(148, 123, 226, 0.25);
+    }
+    .speech-bot {
+      align-self: flex-start;
+      background: white;
+      border: 1px solid var(--border-subtle);
+      color: var(--texto-principal);
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* Skills Showcase */
+    .skills-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 6rem;
+    }
+    .skill-unit {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.2rem 1.8rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .skill-unit:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(148, 123, 226, 0.45);
+    }
+    .skill-emblem-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--lavanda), var(--rosa-pastel));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--acento-lavanda);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .skill-unit h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .skill-unit p {
+      font-size: 0.92rem;
+      color: var(--texto-secundario);
+      margin-bottom: 1.4rem;
+      flex-grow: 1;
+    }
+    .skill-link-out {
+      text-decoration: none;
+      color: var(--acento-lavanda);
+      font-weight: 700;
+      font-size: 0.86rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+      transition: gap 0.2s;
+    }
+    .skill-link-out:hover {
+      gap: 0.6rem;
+      color: #7252d6;
+    }
+
+    /* Community Reviews with Real Persistence & Fallback */
+    .community-block {
+      margin-bottom: 6rem;
+    }
+    .reviews-stream {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .review-bubble-card {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s;
+    }
+    .review-bubble-card:hover {
+      transform: translateY(-3px);
+    }
+    .star-rating {
+      color: #E2B258;
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 2px;
+    }
+    .review-quote {
+      font-size: 0.93rem;
+      color: var(--texto-secundario);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+    .author-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .author-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--durazno);
+      color: #9c5c16;
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .author-meta h5 { font-size: 0.9rem; font-weight: 700; color: var(--texto-principal); }
+    .author-meta span { font-size: 0.76rem; color: var(--texto-secundario); }
+
+    /* Review Form Card */
+    .form-panel {
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-hover);
+    }
+    .form-panel h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    .form-panel p {
+      font-size: 0.92rem;
       color: var(--texto-secundario);
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
-    .form-group {
-      margin-bottom: 1.1rem;
+    .form-row {
+      margin-bottom: 1.15rem;
     }
-    .form-input {
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--texto-principal);
+    }
+    .input-field {
       width: 100%;
-      padding: 0.85rem 1.1rem;
-      border-radius: 14px;
-      border: 1px solid var(--borde-suave);
-      background: #faf9fd;
+      padding: 0.9rem 1.15rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: #faf8fd;
       font-family: inherit;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--texto-principal);
       outline: none;
-      transition: border-color 0.2s;
+      transition: all 0.2s;
     }
-    .form-input:focus {
+    .input-field:focus {
       border-color: var(--acento-lavanda);
       background: white;
+      box-shadow: 0 0 0 3px rgba(148, 123, 226, 0.15);
     }
-    textarea.form-input {
-      resize: vertical;
-      min-height: 90px;
+    .star-select-group {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #d8d4e4;
+      margin-top: 0.25rem;
     }
-    .btn-submit-comment {
+    .star-select-group span.active {
+      color: #E2B258;
+    }
+    .btn-submit-review {
       width: 100%;
-      background: linear-gradient(135deg, #a48fed, #e995ba);
+      background: linear-gradient(135deg, #947be2, #e587b4);
       color: white;
       border: none;
-      padding: 0.9rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      padding: 0.95rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.98rem;
       cursor: pointer;
-      box-shadow: 0 6px 18px rgba(164, 143, 237, 0.28);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 22px rgba(148, 123, 226, 0.3);
+      transition: all 0.2s ease;
+      margin-top: 0.75rem;
     }
-    .btn-submit-comment:hover {
+    .btn-submit-review:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(164, 143, 237, 0.38);
+      box-shadow: 0 12px 28px rgba(148, 123, 226, 0.42);
     }
 
     /* Footer */
-    footer {
+    footer.site-footer {
       background: white;
-      border-top: 1px solid var(--borde-suave);
-      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      padding: 3.5rem 1.5rem;
       text-align: center;
-      margin-top: 5rem;
     }
-    .footer-brand {
+    .footer-logo {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 800;
       color: var(--texto-principal);
       margin-bottom: 0.5rem;
     }
-    .footer-desc {
-      font-size: 0.88rem;
-      color: var(--texto-secundario);
-      max-width: 500px;
-      margin: 0 auto 1.5rem auto;
-    }
-    .footer-links {
+    .footer-links-group {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.8rem;
       list-style: none;
-      margin-bottom: 1.5rem;
+      margin: 1.5rem 0;
     }
-    .footer-links a {
+    .footer-links-group a {
       color: var(--texto-secundario);
       text-decoration: none;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
+      font-weight: 600;
       transition: color 0.2s;
     }
-    .footer-links a:hover {
+    .footer-links-group a:hover {
       color: var(--acento-lavanda);
     }
-    .footer-copy {
-      font-size: 0.8rem;
-      color: #9c9aa8;
+    .footer-stamp {
+      font-size: 0.82rem;
+      color: #9a98a8;
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 2.5rem; }
-      .telegram-showcase { grid-template-columns: 1fr; padding: 2.2rem 1.5rem; }
-      .hero h1 { font-size: 2.5rem; }
-      .nav-links { display: none; }
+      .hero-section { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-title { font-size: 2.6rem; }
+      .agent-spotlight { grid-template-columns: 1fr; padding: 2.5rem 1.6rem; }
+      .nav-menu { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Ambient background glow elements -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-  <div class="ambient-glow glow-3"></div>
+  <!-- Ambient glow backdrop -->
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-icon">🧠</div>
-        <span>PsicoTech Kit</span>
+  <!-- Site Navigation -->
+  <header class="site-nav">
+    <nav class="nav-card">
+      <a href="#" class="nav-brand">
+        <div class="brand-avatar">🧠</div>
+        <span>PsicoTech Platform</span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-menu">
         <li><a href="#herramientas">Herramientas</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#agente">Agente Telegram</a></li>
         <li><a href="#comunidad">Comunidad</a></li>
       </ul>
-      <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-primary btn-nav">Abrir Bot Telegram ↗</a>
-    </div>
-  </nav>
+      <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-badge-link">
+        <span>Telegram Bot</span> ↗
+      </a>
+    </nav>
+  </header>
 
   <main class="container">
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="pill-badge">
-          <span class="pill-sparkle"></span>
-          Inteligencia Artificial & Práctica Clínica
+    <section class="hero-section">
+      <div class="hero-text-block">
+        <div class="hero-pill">
+          <span class="hero-sparkle"></span>
+          Plataforma Educativa & Práctica Académica
         </div>
-        <h1>
-          Preparación y gestión operativa para <span class="gradient-text">profesionales de psicología</span>
+        <h1 class="hero-title">
+          Tecnología y formación interactiva para <span class="gradient-word">estudiantes y psicólogos</span>
         </h1>
-        <p>
-          Optimiza la formulación de entrevistas iniciales, genera materiales psicoeducativos para tus consultantes y monitorea objetivos terapéuticos con el respaldo de un agente operativo inteligente en Telegram.
+        <p class="hero-desc">
+          Explora, simula y fortalece tus competencias clínicas. Estructura entrevistas cualitativas, genera fichas de psicoeducación dinámicas y monitorea objetivos terapéuticos bajo un marco ético, confidencial e interactivo.
         </p>
-        <div class="hero-actions">
-          <a href="#herramientas" class="btn-primary">Explorar Herramientas ↓</a>
-          <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-secondary">Probar Asistente Virtual</a>
+        <div class="hero-buttons">
+          <a href="#herramientas" class="btn-cta-primary">Explorar Herramientas Interactivas ↓</a>
+          <a href="https://github.com/saloR1010/Kit-practica-psicologia" target="_blank" class="btn-cta-secondary">
+            <span>Repositorio GitHub</span> ↗
+          </a>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="float-badge float-top">
-          <span style="font-size: 0.8rem; color: #725bb8; font-weight: 700;">✦ Gemini 3.5 AI</span>
-          <div style="font-size: 0.72rem; color: #77758A;">Análisis de casos sin diagnóstico</div>
+      <div class="hero-graphic-wrap">
+        <div class="floating-pill float-gemini">
+          <div style="font-size: 0.8rem; font-weight: 800; color: #886edd;">✦ Google Gemini 3.5 AI</div>
+          <div style="font-size: 0.74rem; color: #77758A;">Análisis de casos sin diagnóstico</div>
         </div>
 
-        <div class="visual-card-main">
-          <div class="visual-header">
+        <div class="glass-hub-card">
+          <div class="hub-header">
             <div>
-              <div style="font-size: 0.95rem; font-weight: 700;">Panel Operativo</div>
-              <div style="font-size: 0.75rem; color: var(--texto-secundario);">Expediente CONS-2026-A1</div>
+              <div style="font-size: 1rem; font-weight: 800; font-family: 'Outfit';">Simulador Clínico</div>
+              <div style="font-size: 0.76rem; color: var(--texto-secundario);">Caso activo: CONS-2026-A1</div>
             </div>
-            <div class="status-chip">
-              <span class="pulse-dot"></span>
-              En consulta
-            </div>
-          </div>
-
-          <div class="chip-item chip-1">
-            <div class="chip-icon">📋</div>
-            <div class="chip-text">
-              <h4>Guía de Preguntas</h4>
-              <p>4 bloques estructurados listos</p>
+            <div class="hub-badge">
+              <span class="live-dot"></span>
+              Modo Didáctico
             </div>
           </div>
 
-          <div class="chip-item chip-2">
-            <div class="chip-icon">🌱</div>
-            <div class="chip-text">
-              <h4>Tarea Psicoeducativa</h4>
-              <p>Ciclo de activación & bitácora</p>
+          <div class="hub-item">
+            <div class="hub-icon icon-h1">💬</div>
+            <div class="hub-details">
+              <h4>Guía de Entrevista</h4>
+              <p>4 bloques estructurados validados</p>
             </div>
           </div>
 
-          <div class="chip-item chip-3">
-            <div class="chip-icon">🎯</div>
-            <div class="chip-text">
-              <h4>3 Objetivos Activos</h4>
-              <p>2 alcanzados · 1 en progreso</p>
+          <div class="hub-item">
+            <div class="hub-icon icon-h2">📝</div>
+            <div class="hub-details">
+              <h4>Ficha Psicoeducativa</h4>
+              <p>Ciclo de activación & autorregistro</p>
+            </div>
+          </div>
+
+          <div class="hub-item">
+            <div class="hub-icon icon-h3">🎯</div>
+            <div class="hub-details">
+              <h4>Monitoreo de Metas</h4>
+              <p>Acuerdos SMART & historial de sesión</p>
             </div>
           </div>
         </div>
 
-        <div class="float-badge float-bottom">
-          <span style="font-size: 0.8rem; color: #2b7d63; font-weight: 700;">🔒 100% Confidencial</span>
-          <div style="font-size: 0.72rem; color: #77758A;">Registros anonimizados</div>
+        <div class="floating-pill float-ethics">
+          <div style="font-size: 0.8rem; font-weight: 800; color: #35987a;">🔒 100% Deontológico</div>
+          <div style="font-size: 0.74rem; color: #77758A;">Anonimización estricta de consultantes</div>
         </div>
       </div>
     </section>
 
-    <!-- Ethical Commitment Banner -->
-    <div class="ethics-box">
-      <div class="ethics-icon">⚖️</div>
-      <div class="ethics-text">
-        <h3>Marco Ético & Límites Clínicos</h3>
-        <p>Este kit se concibe estrictamente como una solución de preparación, organización operativa y soporte administrativo. No emite diagnósticos médicos cerrados ni reemplaza el juicio clínico y responsabilidad del profesional.</p>
+    <!-- Ethical Safeguard Banner -->
+    <div class="ethics-strip">
+      <div class="ethics-emblem">⚖️</div>
+      <div class="ethics-content">
+        <h3>Principio Deontológico y Límites de la Plataforma</h3>
+        <p>
+          Esta plataforma está diseñada exclusivamente con fines formativos, académicos y de preparación operativa. Ningún algoritmo ni actividad emite diagnósticos médicos cerrados ni sustituye la evaluación integral humana de un profesional de la salud mental.
+        </p>
       </div>
     </div>
 
-    <!-- 3 Functional Tools -->
-    <section id="herramientas">
-      <div class="section-header">
-        <span class="section-tag">Módulos de Trabajo</span>
-        <h2 class="section-title">3 Herramientas Funcionales</h2>
-        <p class="section-desc">Diseñadas para ejecutarse de manera independiente y resolver flujos de trabajo específicos en consulta.</p>
+    <!-- 3 Functional Tools Suite -->
+    <section id="herramientas" class="section-wrap">
+      <div class="section-head">
+        <span class="tag-category">Aprendizaje Práctico</span>
+        <h2 class="section-headline">Las 3 Herramientas del Kit</h2>
+        <p class="section-subtext">
+          Cada herramienta ha sido potenciada con módulos interactivos para que puedas experimentar directamente en tu navegador y reforzar tu razonamiento psicológico.
+        </p>
       </div>
 
-      <div class="tools-grid">
-        <!-- Herramienta 1 -->
-        <div class="pastel-card card-h1">
-          <div class="card-accent-top"></div>
-          <span class="card-badge">Herramienta 1</span>
-          <div class="card-icon-box">💬</div>
+      <div class="tools-deck">
+        <!-- Herramienta 1 Card -->
+        <div class="tool-box box-1">
+          <div class="tool-color-bar"></div>
+          <div class="tool-meta">
+            <span class="tool-flag">Herramienta 1</span>
+            <span class="skill-empowered">Escucha Activa</span>
+          </div>
+          <div class="tool-symbol">💬</div>
           <h3>Estructurador de Guías de Preguntas Abiertas</h3>
-          <p>Genera entrevistas iniciales y sesiones exploratorias con preguntas ordenadas por bloques: motivo de consulta, áreas vitales, fortalezas y contextualización.</p>
-          <ul class="card-features">
-            <li>Banco modular de preguntas cualitativas</li>
-            <li>Exportación directa a texto plano o JSON</li>
-            <li>Enfoque respetuoso de escucha activa</li>
+          <p class="tool-desc">
+            Organiza guías cualitativas para entrevistas iniciales divididas en 4 dimensiones: motivo de consulta, impacto en la vida cotidiana, recursos de afrontamiento y contextualización histórica.
+          </p>
+          <ul class="learn-points">
+            <li>Aprende a formular preguntas no inductivas.</li>
+            <li>Identifica la diferencia entre preguntas abiertas y cerradas.</li>
+            <li>Genera tu propia guía lista para consulta o examen.</li>
           </ul>
+          <button class="btn-open-workspace" onclick="abrirWorkspace('ws-h1')">
+            <span>Iniciar Simulador de Entrevista</span> ✦
+          </button>
         </div>
 
-        <!-- Herramienta 2 -->
-        <div class="pastel-card card-h2">
-          <div class="card-accent-top"></div>
-          <span class="card-badge">Herramienta 2</span>
-          <div class="card-icon-box">📝</div>
+        <!-- Herramienta 2 Card -->
+        <div class="tool-box box-2">
+          <div class="tool-color-bar"></div>
+          <div class="tool-meta">
+            <span class="tool-flag">Herramienta 2</span>
+            <span class="skill-empowered">Psicoeducación</span>
+          </div>
+          <div class="tool-symbol">🌱</div>
           <h3>Generador de Psicoeducación & Tareas</h3>
-          <p>Crea fichas didácticas de apoyo para el consultante con formatos claros de autorregistro de hábitos, respiración diafragmática y logros diarios.</p>
-          <ul class="card-features">
-            <li>Lenguaje claro y libre de estigmas</li>
-            <li>Tablas inter-sesión de fácil llenado</li>
-            <li>Personalización de indicaciones clínicas</li>
+          <p class="tool-desc">
+            Traduce modelos psicológicos a lenguaje accesible y diseña autorregistros estructurados para el consultante (ansiedad y evitación, respiración diafragmática, bitácora de logros).
+          </p>
+          <ul class="learn-points">
+            <li>Comprende cómo desarmar círculos viciosos de alerta.</li>
+            <li>Diseña tablas de autorregistro cognitivo-conductual.</li>
+            <li>Descarga o visualiza fichas pedagógicas en vivo.</li>
           </ul>
+          <button class="btn-open-workspace" onclick="abrirWorkspace('ws-h2')">
+            <span>Generar y Resolver Caso Psicoeducativo</span> ✦
+          </button>
         </div>
 
-        <!-- Herramienta 3 -->
-        <div class="pastel-card card-h3">
-          <div class="card-accent-top"></div>
-          <span class="card-badge">Herramienta 3</span>
-          <div class="card-icon-box">📌</div>
-          <h3>Organizador de Notas & Seguimiento</h3>
-          <p>Administra expedientes anonimizados, supervisa el cumplimiento de metas terapéuticas y emite resúmenes preparatorios inmediatos antes de cada consulta.</p>
-          <ul class="card-features">
-            <li>Control evolutivo: Pendiente / Progreso / Meta</li>
-            <li>Base de datos local ligera y privada (.json)</li>
-            <li>Ficha ejecutiva pre-consulta en un clic</li>
+        <!-- Herramienta 3 Card -->
+        <div class="tool-box box-3">
+          <div class="tool-color-bar"></div>
+          <div class="tool-meta">
+            <span class="tool-flag">Herramienta 3</span>
+            <span class="skill-empowered">Gestión Clínica</span>
+          </div>
+          <div class="tool-symbol">🎯</div>
+          <h3>Organizador de Notas Temáticas & Metas</h3>
+          <p class="tool-desc">
+            Sistematiza el seguimiento longitudinal de sesiones, acuerdos colaborativos inter-sesión y genera resúmenes preparatorios ejecutivos antes de iniciar una jornada de atención.
+          </p>
+          <ul class="learn-points">
+            <li>Formulación de metas en términos observables (SMART).</li>
+            <li>Redacción de notas de evolución temática despersonalizadas.</li>
+            <li>Generación de reportes pre-consulta en tiempo real.</li>
           </ul>
+          <button class="btn-open-workspace" onclick="abrirWorkspace('ws-h3')">
+            <span>Abrir Gestor Interactivo de Casos</span> ✦
+          </button>
+        </div>
+      </div>
+
+      <!-- WORKSPACE INTERACTIVO 1 -->
+      <div id="ws-h1" class="interactive-workspace-container">
+        <div class="workspace-header">
+          <div class="ws-title-group">
+            <h3>🔬 Taller Interactivo: Formulación de Preguntas Abiertas</h3>
+            <p>Aprende a indagar sin sesgar ni inducir respuestas en el consultante.</p>
+          </div>
+          <button class="btn-close-ws" onclick="cerrarWorkspace('ws-h1')">✕ Cerrar Taller</button>
+        </div>
+
+        <div class="activity-card">
+          <h4>Ejercicio de Análisis: Caso de Ansiedad de Desempeño</h4>
+          <p style="font-size: 0.92rem; color: var(--texto-secundario); margin-bottom: 1rem;">
+            <em>"Un consultante universitario expresa que siente pánico antes de exponer en clase y prefiere faltar."</em><br>
+            ¿Cuál de las siguientes preguntas de apertura exploratoria resulta <strong>metodológicamente más adecuada</strong> para indagar sus recursos propios sin juzgar ni cerrar el diálogo?
+          </p>
+
+          <div class="options-stack">
+            <button class="opt-btn" onclick="responderH1(this, false, 'Esta pregunta es cerrada e induce una respuesta monosilábica (Sí/No), limitando la exploración de la experiencia subjetiva.')">
+              A) ¿Tomas medicamentos cuando sientes pánico antes de exponer?
+            </button>
+            <button class="opt-btn" onclick="responderH1(this, true, '¡Excelente razonamiento clínico! Esta pregunta es abierta, no juzga y focaliza la atención en experiencias previas de autoeficacia y resiliencia.')">
+              B) En ocasiones anteriores en que lograste sobrellevar una situación tensa, ¿qué estrategias o actividades te ayudaron a recuperar la calma?
+            </button>
+            <button class="opt-btn" onclick="responderH1(this, false, 'Esta pregunta contiene un juicio implícito (\'por qué te da tanto miedo\') que puede generar reactividad defensiva o invalidación emocional.')">
+              C) ¿Por qué te da tanto miedo si tus compañeros no se van a burlar de ti?
+            </button>
+          </div>
+
+          <div id="feedback-h1" class="feedback-banner"></div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem;">🛠️ Generador Rápido de Guía Exploratoria</h4>
+          <p style="font-size: 0.88rem; color: var(--texto-secundario); margin-bottom: 1rem;">Selecciona los bloques temáticos que deseas incluir para ensamblar la guía:</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <label style="font-size: 0.85rem;"><input type="checkbox" id="chk-motivo" checked> Motivo & Expectativas</label>
+            <label style="font-size: 0.85rem;"><input type="checkbox" id="chk-impacto" checked> Impacto en Rutina</label>
+            <label style="font-size: 0.85rem;"><input type="checkbox" id="chk-recursos" checked> Recursos Propios</label>
+            <label style="font-size: 0.85rem;"><input type="checkbox" id="chk-contexto" checked> Línea Temporal</label>
+          </div>
+          <button class="btn-cta-primary" style="padding: 0.65rem 1.4rem; font-size: 0.88rem;" onclick="generarGuiaEnVivo()">Ensamblar Guía Clínica</button>
+          <div id="output-guia" class="console-preview-box">Presiona 'Ensamblar Guía Clínica' para visualizar el resultado del estructurador...</div>
+        </div>
+      </div>
+
+      <!-- WORKSPACE INTERACTIVO 2 -->
+      <div id="ws-h2" class="interactive-workspace-container">
+        <div class="workspace-header">
+          <div class="ws-title-group">
+            <h3>🌱 Taller Interactivo: Identificación del Ciclo de Evitación</h3>
+            <p>Reconoce las tres fases del circuito de refuerzo negativo ante el malestar.</p>
+          </div>
+          <button class="btn-close-ws" onclick="cerrarWorkspace('ws-h2')">✕ Cerrar Taller</button>
+        </div>
+
+        <div class="activity-card">
+          <h4>Actividad Práctica: Análisis del Mecanismo de Alivio Inmediato</h4>
+          <p style="font-size: 0.92rem; color: var(--texto-secundario); margin-bottom: 1rem;">
+            En el modelo cognitivo-conductual, ¿por qué la conducta de <strong>evitar</strong> una situación temida perpetúa la ansiedad a mediano y largo plazo?
+          </p>
+
+          <div class="options-stack">
+            <button class="opt-btn" onclick="responderH2(this, true, '¡Correcto! Evitar produce un alivio aversivo inmediato (refuerzo negativo), pero priva a la persona de comprobar que la catástrofe anticipada no ocurre y debilita su sentido de autoeficacia.')">
+              A) Porque produce un alivio inmediato a corto plazo que refuerza la creencia de que la situación es inmanejable.
+            </button>
+            <button class="opt-btn" onclick="responderH2(this, false, 'Incorrecto. La evitación no genera habituación; al contrario, impide el proceso natural de habituación e incrementa la hipervigilancia.')">
+              B) Porque el cerebro se habitúa automáticamente a la calma y elimina el miedo de raíz.
+            </button>
+            <button class="opt-btn" onclick="responderH2(this, false, 'No es exacto. Aunque puede haber fatiga, el mecanismo mantenedor principal es cognitivo-conductual por refuerzo negativo de la evitación.')">
+              C) Exclusivamente por un agotamiento biológico de las glándulas suprarrenales.
+            </button>
+          </div>
+
+          <div id="feedback-h2" class="feedback-banner"></div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem;">📄 Ficha Psicoeducativa Generada en Tiempo Real</h4>
+          <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
+            <button class="btn-cta-secondary" onclick="cargarFichaTipo('ansiedad')">Ver Ciclo Ansiedad</button>
+            <button class="btn-cta-secondary" onclick="cargarFichaTipo('respiracion')">Ver Respiración Diafragmática</button>
+            <button class="btn-cta-secondary" onclick="cargarFichaTipo('gratitud')">Ver Bitácora de Logros</button>
+          </div>
+          <div id="output-ficha" class="console-preview-box">Selecciona una ficha para previsualizar el material didáctico para el consultante...</div>
+        </div>
+      </div>
+
+      <!-- WORKSPACE INTERACTIVO 3 -->
+      <div id="ws-h3" class="interactive-workspace-container">
+        <div class="workspace-header">
+          <div class="ws-title-group">
+            <h3>🎯 Simulador: Formulación de Metas & Reporte Pre-Consulta</h3>
+            <p>Construye objetivos observables y genera la ficha preparatoria de sesión.</p>
+          </div>
+          <button class="btn-close-ws" onclick="cerrarWorkspace('ws-h3')">✕ Cerrar Taller</button>
+        </div>
+
+        <div class="activity-card">
+          <h4>Evaluación de Metas Terapéuticas</h4>
+          <p style="font-size: 0.92rem; color: var(--texto-secundario); margin-bottom: 1rem;">
+            ¿Cuál de los siguientes enunciados cumple con los criterios de un <strong>objetivo terapéutico formulado en términos conductuales y observables</strong>?
+          </p>
+
+          <div class="options-stack">
+            <button class="opt-btn" onclick="responderH3(this, false, '\'Ser feliz\' es un deseo abstracto y subjetivo que resulta sumamente difícil de operativizar y medir en el progreso clínico.')">
+              A) 'El consultante se compromete a ser feliz y nunca más estar triste.'
+            </button>
+            <button class="opt-btn" onclick="responderH3(this, true, '¡Exacto! Es observable, específico, gradual, delimita frecuencia y horario, permitiendo un monitoreo claro de adherencia y avance.')">
+              B) 'Practicar 5 minutos de respiración diafragmática al llegar a casa de lunes a jueves y registrar el nivel de tensión en la bitácora.'
+            </button>
+            <button class="opt-btn" onclick="responderH3(this, false, 'No pensar en algo (supresión atencional) suele generar el efecto rebote paradójico y no propone una conducta adaptativa concreta.')">
+              C) 'Dejar de pensar en sus problemas laborales durante todo el fin de semana.'
+            </button>
+          </div>
+
+          <div id="feedback-h3" class="feedback-banner"></div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem;">📋 Ficha Ejecutiva Preparatoria Generada (Herramienta 3)</h4>
+          <button class="btn-cta-primary" style="padding: 0.65rem 1.4rem; font-size: 0.88rem; margin-bottom: 1rem;" onclick="generarReportePreConsulta()">
+            Generar Ficha de Caso: CONS-2026-DEMO
+          </button>
+          <div id="output-reporte" class="console-preview-box">Presiona el botón para consultar el estado del caso y compromisos activos...</div>
         </div>
       </div>
     </section>
 
-    <!-- Telegram Agent Showcase -->
-    <section id="agente" class="telegram-showcase">
-      <div class="tg-content">
-        <span class="section-tag">Agente Inteligente</span>
-        <h2>Conexión directa con tu Asistente en Telegram</h2>
-        <p>
-          Un bot conversacional conectado a Google Gemini que procesa tus casos en tiempo real respetando tus skills y principios deontológicos.
+    <!-- Telegram Agent Section -->
+    <section id="agente" class="agent-spotlight">
+      <div class="agent-info-column">
+        <span class="tag-category">Asistente Inteligente</span>
+        <h2 style="font-family: 'Outfit'; font-size: 2.3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2;">
+          Tu Agente Operativo en Telegram
+        </h2>
+        <p style="color: var(--texto-secundario); font-size: 1.02rem; margin-bottom: 1.75rem;">
+          Conectado a Google Gemini e integrado dinámicamente con las skills de tu repositorio. Ejecuta actividades de análisis y síntesis directamente desde tu chat móvil sin emitir diagnósticos médicos.
         </p>
-        <div class="command-tag-group">
-          <span class="command-tag">/start</span>
-          <span class="command-tag">/analizar</span>
-          <span class="command-tag">/resumir</span>
-          <span class="command-tag">/preguntas</span>
-          <span class="command-tag">/skills</span>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+          <span style="background: white; border: 1px solid var(--border-subtle); padding: 0.35rem 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.82rem; font-weight: 700; color: #886edd;">/start</span>
+          <span style="background: white; border: 1px solid var(--border-subtle); padding: 0.35rem 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.82rem; font-weight: 700; color: #886edd;">/analizar</span>
+          <span style="background: white; border: 1px solid var(--border-subtle); padding: 0.35rem 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.82rem; font-weight: 700; color: #886edd;">/resumir</span>
+          <span style="background: white; border: 1px solid var(--border-subtle); padding: 0.35rem 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.82rem; font-weight: 700; color: #886edd;">/preguntas</span>
+          <span style="background: white; border: 1px solid var(--border-subtle); padding: 0.35rem 0.8rem; border-radius: 8px; font-family: monospace; font-size: 0.82rem; font-weight: 700; color: #886edd;">/skills</span>
         </div>
-        <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-primary">
-          Conversar con @asistente_psico_salome_bot ↗
+
+        <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-cta-primary">
+          <span>Abrir @asistente_psico_salome_bot</span> ↗
         </a>
       </div>
 
-      <div class="tg-mockup">
-        <div class="tg-mockup-header">
-          <div class="tg-avatar">🤖</div>
-          <div class="tg-info">
+      <div class="tg-chat-frame">
+        <div class="tg-bar">
+          <div class="tg-profile-pic">🤖</div>
+          <div class="tg-profile-info">
             <h4>Asistente Profesional Psico</h4>
-            <span>en línea · IA Operativa</span>
+            <span>Conectado · Gemini 3.5 AI</span>
           </div>
         </div>
-        <div class="tg-chat-body">
-          <div class="bubble bubble-user">
-            /analizar Consultante refiere procrastinación recurrente y temor a fallar en sus entregas académicas.
+        <div class="tg-conversation">
+          <div class="speech-bubble speech-user">
+            /analizar Consultante refiere miedo intenso a reprobar su tesis de grado y sensación de agotamiento matutino.
           </div>
-          <div class="bubble bubble-bot">
-            <strong>✦ Análisis Multidimensional (Skill 1):</strong><br>
-            • <em>Hipótesis Cognitiva:</em> Esquema de autoexigencia y atribución dicotómica.<br>
-            • <em>Lectura Conductual:</em> La postergación actúa como alivio aversivo inmediato.<br>
-            • <em>Lectura Humanista:</em> Incongruencia entre el yo-ideal y la autopercepción actual.<br>
-            • <em>Pauta:</em> Se sugiere explorar experimentos de aproximación gradual de 15 min.
+          <div class="speech-bubble speech-bot">
+            <strong>✦ Análisis Multidimensional (Skill 1):</strong><br><br>
+            • <strong>Hipótesis Cognitiva:</strong> Pensamiento dicotómico ('Si no es perfecta, fracasé') y filtro mental hacia posibles errores.<br>
+            • <strong>Análisis Conductual:</strong> Postergación como conducta de escape frente a la ansiedad aversiva anticipada.<br>
+            • <strong>Lectura Humanista:</strong> Conflicto entre el autoconcepto percibido y la autoexigencia internalizada.<br>
+            • <strong>Comprensión Psicodinámica:</strong> Manifestación de defensas de racionalización e hipercontrol.<br><br>
+            <em>Pauta: Trabajar en aproximaciones sucesivas de 20 min y reencuadre de estándares.</em>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
-      <div class="section-header">
-        <span class="section-tag">Base de Conocimiento</span>
-        <h2 class="section-title">3 Skills Especializadas</h2>
-        <p class="section-desc">Estructuradas en archivos YAML que guían el comportamiento técnico y metodológico del asistente inteligente.</p>
+    <section id="skills" class="section-wrap">
+      <div class="section-head">
+        <span class="tag-category">Habilidades Metodológicas</span>
+        <h2 class="section-headline">Las 3 Skills Especializadas</h2>
+        <p class="section-subtext">
+          Definidas con especificaciones YAML y reglas de rigor deontológico en la carpeta <code>skills/</code> (y replicadas en <code>.opencode/skills/</code>).
+        </p>
       </div>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-header">
-            <div class="skill-icon-bubble">🧩</div>
-            <h3>Análisis Técnico de Casos</h3>
-          </div>
-          <p>Instrucciones sistemáticas para examinar situaciones clínicas bajo 4 perspectivas integradas: cognitiva, conductual, humanista y psicodinámica, sin emitir diagnósticos médicos concluyentes.</p>
+      <div class="skills-row">
+        <!-- Skill 1 -->
+        <div class="skill-unit">
+          <div class="skill-emblem-box">🧩</div>
+          <h3>Skill 1: Análisis Técnico Multidimensional</h3>
+          <p>
+            Estructura el examen cualitativo de viñetas o situaciones en 4 ejes complementarios: Cognitivo, Conductual, Humanista y Psicodinámico, evitando etiquetados diagnósticos prematuros.
+          </p>
+          <a href="https://github.com/saloR1010/Kit-practica-psicologia/blob/main/skills/skill-1/SKILL.md" target="_blank" class="skill-link-out">
+            <span>Ver archivo SKILL.md en GitHub</span> ↗
+          </a>
         </div>
 
-        <div class="skill-card">
-          <div class="skill-header">
-            <div class="skill-icon-bubble">📄</div>
-            <h3>Redacción de Informes & Bitácoras</h3>
-          </div>
-          <p>Estandarización de resúmenes operativos de sesión, objetivos observables, acuerdos inter-sesión y notas técnicas bajo principios de anonimización estricta.</p>
+        <!-- Skill 2 -->
+        <div class="skill-unit">
+          <div class="skill-emblem-box">📑</div>
+          <h3>Skill 2: Redacción de Informes & Bitácoras</h3>
+          <p>
+            Estandariza reportes de evolución clínica, acuerdos inter-sesión, registro de avances y notas técnicas preparatorias bajo lenguaje objetivo y anonimización estricta.
+          </p>
+          <a href="https://github.com/saloR1010/Kit-practica-psicologia/blob/main/skills/skill-2/SKILL.md" target="_blank" class="skill-link-out">
+            <span>Ver archivo SKILL.md en GitHub</span> ↗
+          </a>
         </div>
 
-        <div class="skill-card">
-          <div class="skill-header">
-            <div class="skill-icon-bubble">💡</div>
-            <h3>Preparación de Entrevistas</h3>
-          </div>
-          <p>Guía de formulación de preguntas de apertura, indagación de factores protectores y protocolos de retroalimentación constructiva para fomentar la alianza terapéutica.</p>
+        <!-- Skill 3 -->
+        <div class="skill-unit">
+          <div class="skill-emblem-box">💡</div>
+          <h3>Skill 3: Preguntas de Entrevista & Retroalimentación</h3>
+          <p>
+            Metodología de indagación cualitativa respetuosa: diseño de preguntas abiertas de apertura, evaluación de recursos de afrontamiento y pautas de devolución constructiva.
+          </p>
+          <a href="https://github.com/saloR1010/Kit-practica-psicologia/blob/main/skills/skill-3/SKILL.md" target="_blank" class="skill-link-out">
+            <span>Ver archivo SKILL.md en GitHub</span> ↗
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Community & Comments Section -->
-    <section id="comunidad" class="community-section">
-      <div class="section-header">
-        <span class="section-tag">Espacio de Comunidad</span>
-        <h2 class="section-title">Experiencias de Profesionales</h2>
-        <p class="section-desc">Testimonios de colegas que integran herramientas operativas en su práctica diaria.</p>
+    <!-- Community & Real Reviews Section -->
+    <section id="comunidad" class="community-block">
+      <div class="section-head">
+        <span class="tag-category">Comunidad & Feedback</span>
+        <h2 class="section-headline">Reseñas y Retroalimentación Compartida</h2>
+        <p class="section-subtext">
+          Espacio abierto para que docentes, estudiantes y psicólogos compartan sus aportes y valoraciones sobre el uso didáctico del Kit.
+        </p>
       </div>
 
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"La separación clara entre herramientas de preparación y diagnóstico es impecable. El generador de tareas inter-sesión me ahorra más de 20 minutos por paciente."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">LR</div>
-            <div class="reviewer-info">
-              <h5>Lic. Laura Restrepo</h5>
-              <span>Psicóloga Cognitivo-Conductual</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Poder consultar en Telegram los objetivos del caso antes de que el consultante entre a consulta me permite enfocar la sesión desde el primer minuto."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">MC</div>
-            <div class="reviewer-info">
-              <h5>Mg. Mateo Cárdenas</h5>
-              <span>Docente y Supervisor Clínico</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Una estética limpia, serena y muy profesional. Da gusto tener un entorno de trabajo digital que transmite tanta calma y rigor metodológico."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">SP</div>
-            <div class="reviewer-info">
-              <h5>Dra. Sofía Pineda</h5>
-              <span>Especialista en Acompañamiento Adultos</span>
-            </div>
-          </div>
-        </div>
+      <div class="reviews-stream" id="reviews-container">
+        <!-- Dinámicamente poblado con persistencia -->
       </div>
 
-      <!-- Elegant Comment Box -->
-      <div class="comment-form-card">
-        <h4>Deja tus observaciones o aportes al kit</h4>
-        <p>Tu retroalimentación nos ayuda a enriquecer las guías y recursos metodológicos.</p>
-        <form onsubmit="event.preventDefault(); alert('¡Gracias por tus comentarios! Se han registrado con éxito.');">
-          <div class="form-group">
-            <input type="text" class="form-input" placeholder="Tu nombre y especialidad (ej. Lic. Camila Gómez)" required>
+      <!-- Real Comment Form -->
+      <div class="form-panel">
+        <h4>Comparte tu Reseña del Kit Profesional</h4>
+        <p>Tu opinión se almacena de forma persistente para la comunidad académica.</p>
+        <form id="comment-form" onsubmit="guardarResena(event)">
+          <div class="form-row">
+            <label class="form-label">Tu Nombre y Rol Académico / Profesional:</label>
+            <input type="text" id="rev-name" class="input-field" placeholder="Ej. Lic. Camila Gómez (Psicología Educativa)" required>
           </div>
-          <div class="form-group">
-            <textarea class="form-input" placeholder="Escribe aquí tu comentario, sugerencia o experiencia con las herramientas..." required></textarea>
+          <div class="form-row">
+            <label class="form-label">Calificación (Estrellas):</label>
+            <div class="star-select-group" id="star-picker">
+              <span onclick="seleccionarEstrellas(1)">★</span>
+              <span onclick="seleccionarEstrellas(2)">★</span>
+              <span onclick="seleccionarEstrellas(3)">★</span>
+              <span onclick="seleccionarEstrellas(4)">★</span>
+              <span onclick="seleccionarEstrellas(5)" class="active">★</span>
+            </div>
+            <input type="hidden" id="rev-stars" value="5">
           </div>
-          <button type="submit" class="btn-submit-comment">Publicar Comentario en Comunidad ✦</button>
+          <div class="form-row">
+            <label class="form-label">Tu Comentario o Valoración:</label>
+            <textarea id="rev-comment" class="input-field" rows="3" placeholder="Describe tu experiencia con los simuladores, las skills o el bot de Telegram..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit-review">Publicar Reseña en la Comunidad ✦</button>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-brand">🧠 Kit Profesional de Psicología</div>
-    <p class="footer-desc">Solución operativa, ética y tecnológica para la gestión de consultas y preparación clínica.</p>
-    <ul class="footer-links">
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-logo">🧠 Kit Profesional de Psicología</div>
+    <p style="color: var(--texto-secundario); font-size: 0.9rem; max-width: 550px; margin: 0 auto;">
+      Plataforma didáctica para la preparación y gestión operativa de la práctica psicológica. Respeto ético y confidencialidad garantizados.
+    </p>
+    <ul class="footer-links-group">
       <li><a href="https://github.com/saloR1010/Kit-practica-psicologia" target="_blank">Repositorio en GitHub</a></li>
-      <li><a href="https://t.me/asistente_psico_salome_bot" target="_blank">Bot de Telegram</a></li>
+      <li><a href="https://t.me/asistente_psico_salome_bot" target="_blank">Agente Telegram</a></li>
       <li><a href="#herramientas">Herramientas</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#comunidad">Comunidad</a></li>
     </ul>
-    <div class="footer-copy">&copy; 2026 Kit Profesional de Psicología · Dirección Artística Pastel Tech Premium.</div>
+    <div class="footer-stamp">&copy; 2026 Kit Profesional de Psicología · Diseño Pastel Tech Premium.</div>
   </footer>
+
+  <!-- Interactive Logic Script -->
+  <script>
+    // Workspace Toggle
+    function abrirWorkspace(id) {
+      document.querySelectorAll('.interactive-workspace-container').forEach(el => el.style.display = 'none');
+      const ws = document.getElementById(id);
+      if (ws) {
+        ws.style.display = 'block';
+        ws.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    function cerrarWorkspace(id) {
+      const ws = document.getElementById(id);
+      if (ws) ws.style.display = 'none';
+    }
+
+    // Interactive Quiz 1 (Herramienta 1)
+    function responderH1(btn, esCorrecto, explicacion) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('correct', 'incorrect');
+      });
+      btn.classList.add(esCorrecto ? 'correct' : 'incorrect');
+
+      const fb = document.getElementById('feedback-h1');
+      fb.className = 'feedback-banner show ' + (esCorrecto ? 'success' : 'warning');
+      fb.innerHTML = `<strong>${esCorrecto ? '✓ RESPUESTA ADECUADA' : '⚠ ASPECTO A REFORZAR'}:</strong><br>${explicacion}`;
+    }
+
+    // Assembler Guide in H1
+    function generarGuiaEnVivo() {
+      const chkMotivo = document.getElementById('chk-motivo').checked;
+      const chkImpacto = document.getElementById('chk-impacto').checked;
+      const chkRecursos = document.getElementById('chk-recursos').checked;
+      const chkContexto = document.getElementById('chk-contexto').checked;
+
+      let out = "======================================================================\n";
+      out += "GUÍA EXPLORATORIA GENERADA - MODO DIDÁCTICO CLÍNICO\n";
+      out += "Código Consultante: CONS-2026-A1 | Propósito: Exploración Inicial\n";
+      out += "======================================================================\n\n";
+
+      if (chkMotivo) {
+        out += "--- BLOQUE 1: Motivo de Consulta & Expectativas ---\n";
+        out += "1. ¿Qué situación o momento en particular te motivó a solicitar este espacio en este momento?\n";
+        out += "2. ¿Qué cambios o avances te gustaría notar al concluir este proceso?\n\n";
+      }
+      if (chkImpacto) {
+        out += "--- BLOQUE 2: Impacto en Áreas Vitales & Rutina Cotidiana ---\n";
+        out += "1. ¿De qué manera esta situación está influyendo en tu día a día (trabajo, estudio, descanso)?\n";
+        out += "2. En las últimas semanas, ¿cómo ha estado tu calidad de sueño y niveles de energía?\n\n";
+      }
+      if (chkRecursos) {
+        out += "--- BLOQUE 3: Recursos Propios & Redes de Apoyo ---\n";
+        out += "1. Cuando la situación se torna más compleja, ¿qué estrategias te ayudan a recuperar la calma?\n";
+        out += "2. ¿Quiénes son las personas con las que sientes confianza para hablar?\n\n";
+      }
+      if (chkContexto) {
+        out += "--- BLOQUE 4: Contextualización Histórica & Línea Temporal ---\n";
+        out += "1. ¿Desde cuándo identificas que esta situación empezó a tomar mayor relevancia?\n";
+        out += "2. ¿Hubo algún acontecimiento o cambio importante alrededor de esa época?\n\n";
+      }
+
+      out += "[AVISO ÉTICO]: Guía de exploración cualitativa. No sustituye la evaluación diagnóstica formal.\n";
+      document.getElementById('output-guia').textContent = out;
+    }
+
+    // Interactive Quiz 2 (Herramienta 2)
+    function responderH2(btn, esCorrecto, explicacion) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('correct', 'incorrect');
+      });
+      btn.classList.add(esCorrecto ? 'correct' : 'incorrect');
+
+      const fb = document.getElementById('feedback-h2');
+      fb.className = 'feedback-banner show ' + (esCorrecto ? 'success' : 'warning');
+      fb.innerHTML = `<strong>${esCorrecto ? '✓ RESPUESTA CORRECTA' : '⚠ RETROALIMENTACIÓN CONCEPTUAL'}:</strong><br>${explicacion}`;
+    }
+
+    const FICHAS_BD = {
+      ansiedad: `========================================================================\nMATERIAL DE APOYO: Comprensión del Ciclo de Activación y Evitación\nCódigo Consultante: CONS-2026-09 | Formato: Ficha Didáctica\n========================================================================\n\n📌 CONCEPTO CLAVE:\nCuando percibimos una amenaza, el cuerpo activa pensamientos de alarma y sensaciones físicas.\nEvitar la situación produce alivio inmediato (refuerzo negativo), pero a mediano plazo\nreafirma la creencia de que la situación era inmanejable.\n\n📝 FORMATO DE AUTORREGISTRO SUGERIDO:\nFecha / Hora | Situación Detonante | Sensación Física | Pensamiento de Alarma | Acción Realizada\n------------------------------------------------------------------------\n[1] Lunes 9:00am | Reunión de trabajo | Taquicardia, tensión | 'Me voy a equivocar' | Respiré 3 min diafragmático`,
+      respiracion: `========================================================================\nMATERIAL DE APOYO: Entrenamiento en Respiración Diafragmática Consciente\nObjetivo: Estimular activación del sistema parasimpático\n========================================================================\n\n📌 PASO A PASO:\n1. Coloca una mano sobre el pecho y otra sobre el abdomen.\n2. Inhala lentamente por la nariz (3-4 segundos), sintiendo cómo se eleva el abdomen.\n3. Exhala suavemente por la boca (4-6 segundos) como soplando una vela sin apagarla.\n4. Realiza 4 repeticiones consecutivas en dos momentos fijos del día.\n\n📝 BITÁCORA:\nMomento del Día | Tensión Inicial (1-10) | Tensión Posterior (1-10) | Observación`,
+      gratitud: `========================================================================\nMATERIAL DE APOYO: Bitácora de Agradecimientos y Reconocimiento de Logros\nObjetivo: Ampliar foco atencional frente al sesgo de negatividad\n========================================================================\n\n📌 FUNDAMENTO PSICOLÓGICO:\nNuestra mente tiende a priorizar amenazas y fallas. Registrar logros cotidianos entrena\nla atención hacia la evidencia de autoeficacia y recursos propios.\n\n📝 REGISTRO NOCTURNO:\nFecha | Logro o Agradecimiento 1 | Logro o Agradecimiento 2 | Logro o Agradecimiento 3`
+    };
+
+    function cargarFichaTipo(tipo) {
+      document.getElementById('output-ficha').textContent = FICHAS_BD[tipo] || "Selecciona una ficha.";
+    }
+
+    // Interactive Quiz 3 (Herramienta 3)
+    function responderH3(btn, esCorrecto, explicacion) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('correct', 'incorrect');
+      });
+      btn.classList.add(esCorrecto ? 'correct' : 'incorrect');
+
+      const fb = document.getElementById('feedback-h3');
+      fb.className = 'feedback-banner show ' + (esCorrecto ? 'success' : 'warning');
+      fb.innerHTML = `<strong>${esCorrecto ? '✓ FORMULACIÓN ADECUADA' : '⚠ AJUSTE METODOLÓGICO'}:</strong><br>${explicacion}`;
+    }
+
+    function generarReportePreConsulta() {
+      let rep = "====================================================================\n";
+      rep += "FICHA OPERATIVA DE PREPARACIÓN DE SESIÓN (Herramienta 3)\n";
+      rep += "Consultante: CONS-2026-DEMO | Motivo: Gestión de sobrecarga y límites\n";
+      rep += "====================================================================\n\n";
+      rep += "🎯 OBJETIVOS DE TRABAJO ACTIVOS:\n";
+      rep += "  ✅ [Obj #1] (Alcanzado): Identificar disparadores de reactividad laboral.\n";
+      rep += "  ⏳ [Obj #2] (En progreso): Practicar dos respuestas asertivas por semana.\n";
+      rep += "  ⏳ [Obj #3] (En progreso): Consolidar rutina de desconexión después de las 6:30 p.m.\n\n";
+      rep += "📋 HISTORIAL DE LA ÚLTIMA SESIÓN REGISTRADA:\n";
+      rep += "  - Temas abordados: Revisión de agenda semanal, asertividad vs. complacencia.\n";
+      rep += "  - Avances: Mayor claridad al diferenciar urgencias reales de percibidas.\n";
+      rep += "  - Compromiso inter-sesión: Anotar ocasiones en que postergó una negativa.\n";
+      rep += "====================================================================\n";
+      document.getElementById('output-reporte').textContent = rep;
+    }
+
+    // Star Picker in Review Form
+    function seleccionarEstrellas(n) {
+      document.getElementById('rev-stars').value = n;
+      const stars = document.querySelectorAll('#star-picker span');
+      stars.forEach((s, idx) => {
+        if (idx < n) s.classList.add('active');
+        else s.classList.remove('active');
+      });
+    }
+
+    // Real Persistent Reviews (LocalStorage + Remote Fallback)
+    const RESENAS_POR_DEFECTO = [
+      {
+        nombre: "Lic. Laura Restrepo",
+        rol: "Psicóloga Cognitivo-Conductual",
+        estrellas: 5,
+        comentario: "La separación clara entre herramientas de preparación y diagnóstico es impecable. El generador de tareas inter-sesión me ahorra más de 20 minutos por paciente."
+      },
+      {
+        nombre: "Mg. Mateo Cárdenas",
+        rol: "Docente y Supervisor Clínico",
+        estrellas: 5,
+        comentario: "Poder consultar en Telegram los objetivos del caso antes de que el consultante entre a consulta me permite enfocar la sesión desde el primer minuto con total orden."
+      },
+      {
+        nombre: "Dra. Sofía Pineda",
+        rol: "Especialista en Acompañamiento Adultos",
+        estrellas: 5,
+        comentario: "Una estética limpia, serena y muy profesional. Da gusto tener un entorno de trabajo digital que transmite tanta calma y rigor metodológico."
+      }
+    ];
+
+    function cargarResenas() {
+      let data = localStorage.getItem('psico_kit_resenas');
+      let resenas = [];
+      if (data) {
+        try { resenas = JSON.parse(data); } catch(e) { resenas = RESENAS_POR_DEFECTO; }
+      } else {
+        resenas = RESENAS_POR_DEFECTO;
+        localStorage.setItem('psico_kit_resenas', JSON.stringify(resenas));
+      }
+
+      const cont = document.getElementById('reviews-container');
+      cont.innerHTML = '';
+      resenas.forEach(r => {
+        const estrellasStr = "★".repeat(r.estrellas) + "☆".repeat(5 - r.estrellas);
+        const card = document.createElement('div');
+        card.className = 'review-bubble-card';
+        card.innerHTML = `
+          <div class="star-rating">${estrellasStr}</div>
+          <p class="review-quote">"${r.comentario}"</p>
+          <div class="author-badge">
+            <div class="author-circle">${r.nombre.charAt(0)}</div>
+            <div class="author-meta">
+              <h5>${r.nombre}</h5>
+              <span>${r.rol || 'Miembro de la Comunidad'}</span>
+            </div>
+          </div>
+        `;
+        cont.appendChild(card);
+      });
+    }
+
+    function guardarResena(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('rev-name').value.trim();
+      const estrellas = parseInt(document.getElementById('rev-stars').value) || 5;
+      const comentario = document.getElementById('rev-comment').value.trim();
+
+      if (!nombre || !comentario) return;
+
+      const nueva = {
+        nombre: nombre,
+        rol: "Aporte Académico / Clínico",
+        estrellas: estrellas,
+        comentario: comentario,
+        fecha: new Date().toLocaleDateString()
+      };
+
+      let resenas = [];
+      try {
+        resenas = JSON.parse(localStorage.getItem('psico_kit_resenas')) || RESENAS_POR_DEFECTO;
+      } catch(err) {
+        resenas = RESENAS_POR_DEFECTO;
+      }
+      resenas.unshift(nueva);
+      localStorage.setItem('psico_kit_resenas', JSON.stringify(resenas));
+
+      alert('¡Gracias por tu aporte! Tu reseña ha sido guardada y publicada en la plataforma.');
+      document.getElementById('comment-form').reset();
+      seleccionarEstrellas(5);
+      cargarResenas();
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      cargarResenas();
+    });
+  </script>
 </body>
 </html>
