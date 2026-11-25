@@ -1455,32 +1455,35 @@
         <!-- Dinámicamente poblado con persistencia -->
       </div>
 
-      <!-- Real Comment Form -->
-      <div class="form-panel">
-        <h4>Comparte tu Reseña del Kit Profesional</h4>
-        <p>Tu opinión se almacena de forma persistente para la comunidad académica.</p>
-        <form id="comment-form" onsubmit="guardarResena(event)">
-          <div class="form-row">
-            <label class="form-label">Tu Nombre y Rol Académico / Profesional:</label>
-            <input type="text" id="rev-name" class="input-field" placeholder="Ej. Lic. Camila Gómez (Psicología Educativa)" required>
-          </div>
-          <div class="form-row">
-            <label class="form-label">Calificación (Estrellas):</label>
-            <div class="star-select-group" id="star-picker">
-              <span onclick="seleccionarEstrellas(1)">★</span>
-              <span onclick="seleccionarEstrellas(2)">★</span>
-              <span onclick="seleccionarEstrellas(3)">★</span>
-              <span onclick="seleccionarEstrellas(4)">★</span>
-              <span onclick="seleccionarEstrellas(5)" class="active">★</span>
-            </div>
-            <input type="hidden" id="rev-stars" value="5">
-          </div>
-          <div class="form-row">
-            <label class="form-label">Tu Comentario o Valoración:</label>
-            <textarea id="rev-comment" class="input-field" rows="3" placeholder="Describe tu experiencia con los simuladores, las skills o el bot de Telegram..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit-review">Publicar Reseña en la Comunidad ✦</button>
-        </form>
+      <!-- Real GitHub Discussions Community Widget via Giscus -->
+      <div style="background: white; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2.5rem; max-width: 820px; margin: 0 auto; box-shadow: var(--shadow-hover);">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h4 style="font-family: 'Outfit'; font-size: 1.5rem; font-weight: 800; color: var(--texto-principal); margin-bottom: 0.4rem;">
+            💬 Conversación y Reseñas con GitHub
+          </h4>
+          <p style="font-size: 0.93rem; color: var(--texto-secundario);">
+            Inicia sesión con tu cuenta de GitHub para dejar comentarios, aportes y valoraciones reales respaldadas en los <em>Discussions</em> de nuestro repositorio.
+          </p>
+        </div>
+
+        <div class="giscus"></div>
+
+        <script src="https://giscus.app/client.js"
+                data-repo="saloR1010/Kit-practica-psicologia"
+                data-repo-id="R_kgDOV67YPw"
+                data-category="General"
+                data-category-id="DIC_kwDOV67YP84DL6k6"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="es"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+        </script>
       </div>
     </section>
   </main>
