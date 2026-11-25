@@ -1,0 +1,22 @@
+# Entornos virtuales y dependencias
+.env
+.env.local
+*.env
+__pycache__/
+*.py[cod]
+*$py.class
+env/
+venv/
+.venv/
+ENV/
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos del sistema
+Thumbs.db
+Desktop.ini
+.DS_Store

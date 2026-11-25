@@ -1,0 +1,41 @@
+{
+  "casos": {
+    "CONS-2026-DEMO": {
+      "codigo": "CONS-2026-DEMO",
+      "fecha_inicio": "2026-11-24",
+      "motivo_general": "Gestión de sobrecarga laboral y establecimiento de límites asertivos",
+      "objetivos": [
+        {
+          "id": 1,
+          "descripcion": "Identificar disparadores de reactividad ante demandas urgentes en el trabajo",
+          "estado": "Alcanzado",
+          "fecha_creacion": "2026-11-24"
+        },
+        {
+          "id": 2,
+          "descripcion": "Practicar dos respuestas asertivas por semana ante solicitudes extraordinarias",
+          "estado": "En progreso",
+          "fecha_creacion": "2026-11-24"
+        },
+        {
+          "id": 3,
+          "descripcion": "Consolidar rutina de desconexión digital después de las 6:30 p.m.",
+          "estado": "En progreso",
+          "fecha_creacion": "2026-11-24"
+        }
+      ],
+      "sesiones": [
+        {
+          "numero_sesion": 1,
+          "fecha": "2026-11-24 21:09",
+          "temas_clave": [
+            "Revisión de agenda semanal",
+            "Concepto de asertividad vs. complacencia"
+          ],
+          "avances_observados": "Mayor claridad conceptual al diferenciar una urgencia real de una percibida.",
+          "compromisos_acordados": "Llevar registro de las veces en que postergó una negativa por incomodidad."
+        }
+      ]
+    }
+  }
+}
