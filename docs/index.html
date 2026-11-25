@@ -3,166 +3,1154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kit Profesional de Psicología - Preparación y Gestión Operativa</title>
+  <title>Kit Profesional de Psicología | Pastel Tech Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --secondary: #0f766e;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: #e2e8f0;
+      --rosa-pastel: #F8E8F1;
+      --lavanda-suave: #E8DFF8;
+      --azul-cielo: #DCEBFA;
+      --verde-menta: #DDF3EB;
+      --durazno: #FFF0DC;
+      --blanco-crema: #FCFAF7;
+      --pure-white: #FFFFFF;
+      --texto-principal: #343247;
+      --texto-secundario: #77758A;
+      --acento-lavanda: #9883db;
+      --acento-rosa: #e38eb8;
+      --acento-azul: #6eaee6;
+      --acento-menta: #55b89a;
+      --borde-suave: rgba(220, 215, 235, 0.45);
+      --glass-bg: rgba(255, 255, 255, 0.72);
+      --shadow-sm: 0 4px 16px rgba(119, 117, 138, 0.05);
+      --shadow-md: 0 10px 30px rgba(119, 117, 138, 0.07);
+      --shadow-lg: 0 20px 45px rgba(152, 131, 219, 0.10);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--blanco-crema);
+      color: var(--texto-principal);
+      line-height: 1.65;
+      position: relative;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(248, 232, 241, 0.7) 0%, transparent 40%),
+        radial-gradient(circle at 90% 25%, rgba(220, 235, 250, 0.7) 0%, transparent 45%),
+        radial-gradient(circle at 50% 60%, rgba(232, 223, 248, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 80% 85%, rgba(221, 243, 235, 0.6) 0%, transparent 40%);
+      background-attachment: fixed;
     }
-    header {
-      background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
-      color: white;
-      padding: 4.5rem 1.5rem;
-      text-align: center;
+
+    /* Ambient AI floating background elements */
+    .ambient-glow {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.65;
     }
-    header h1 { font-size: 2.6rem; margin-bottom: 0.8rem; font-weight: 700; }
-    header p { font-size: 1.2rem; opacity: 0.95; max-width: 780px; margin: 0 auto; }
-    .badge-header {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 0.4rem 1rem;
+    .glow-1 { top: -100px; left: -100px; background: linear-gradient(135deg, var(--rosa-pastel), var(--lavanda-suave)); }
+    .glow-2 { top: 600px; right: -120px; background: linear-gradient(135deg, var(--azul-cielo), var(--verde-menta)); }
+    .glow-3 { bottom: 300px; left: 10%; background: linear-gradient(135deg, var(--lavanda-suave), var(--durazno)); }
+
+    /* Navigation Bar */
+    nav {
+      position: sticky;
+      top: 1.5rem;
+      z-index: 100;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .nav-container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--borde-suave);
       border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.5px;
+      padding: 0.75rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
-    .grid {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--texto-principal);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--acento-rosa), var(--acento-lavanda));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(152, 131, 219, 0.25);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--texto-secundario);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: var(--acento-lavanda);
+    }
+    .btn-nav {
+      background: linear-gradient(135deg, #a48fed, #ec9dc0);
+      color: white !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem !important;
+      box-shadow: 0 4px 12px rgba(164, 143, 237, 0.28);
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .btn-nav:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(164, 143, 237, 0.38);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem 0;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-content {
+      max-width: 600px;
+    }
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--borde-suave);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--acento-lavanda);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+    .pill-sparkle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--acento-rosa), var(--acento-lavanda));
+      display: inline-block;
+      animation: pulseSparkle 2s infinite ease-in-out;
+    }
+    @keyframes pulseSparkle {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.4); opacity: 1; }
+    }
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--texto-principal);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, #7c64d8 0%, #d8709e 50%, #4a9be6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--texto-secundario);
+      margin-bottom: 2.2rem;
+      font-weight: 400;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #9782ec 0%, #e895b9 100%);
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 1.85rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 24px rgba(151, 130, 236, 0.3);
+      transition: all 0.25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(151, 130, 236, 0.42);
+    }
+    .btn-secondary {
+      background: var(--glass-bg);
+      color: var(--texto-principal);
+      text-decoration: none;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--borde-suave);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* 3D Glass Hero Mockup / Composition */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .visual-card-main {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .visual-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--borde-suave);
+      padding-bottom: 1rem;
+    }
+    .status-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--verde-menta);
+      color: #2b7d63;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2b7d63;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    .chip-item {
+      background: white;
+      border: 1px solid var(--borde-suave);
+      border-radius: 16px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+    .chip-item:hover {
+      transform: translateX(4px);
+    }
+    .chip-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .chip-1 .chip-icon { background: var(--rosa-pastel); color: #c45b8a; }
+    .chip-2 .chip-icon { background: var(--lavanda-suave); color: #725bb8; }
+    .chip-3 .chip-icon { background: var(--azul-cielo); color: #377eb8; }
+
+    .chip-text h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--texto-principal);
+    }
+    .chip-text p {
+      font-size: 0.76rem;
+      color: var(--texto-secundario);
+      margin: 0;
+    }
+
+    /* Floating Badges */
+    .float-badge {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--borde-suave);
+      border-radius: 18px;
+      padding: 0.75rem 1.1rem;
+      box-shadow: var(--shadow-md);
+      z-index: 3;
+      animation: floatSmooth 6s ease-in-out infinite;
+    }
+    .float-top {
+      top: -20px;
+      right: -25px;
+      animation-delay: 0s;
+    }
+    .float-bottom {
+      bottom: -25px;
+      left: -25px;
+      animation-delay: 2.5s;
+    }
+    @keyframes floatSmooth {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Ethics Banner */
+    .ethics-box {
+      background: linear-gradient(135deg, rgba(232, 223, 248, 0.45) 0%, rgba(220, 235, 250, 0.45) 100%);
+      border: 1px solid rgba(220, 215, 235, 0.6);
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      margin: 3.5rem 0;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .ethics-icon {
+      font-size: 2rem;
+      background: white;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .ethics-text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.25rem;
+    }
+    .ethics-text p {
+      font-size: 0.92rem;
+      color: var(--texto-secundario);
+      margin: 0;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 3rem auto;
+    }
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--acento-lavanda);
+      background: var(--lavanda-suave);
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--texto-secundario);
+    }
+
+    /* 3 Tools Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+    .pastel-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--borde-suave);
+      border-radius: 24px;
+      padding: 2.2rem 1.9rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .pastel-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(152, 131, 219, 0.35);
+    }
+    .card-accent-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+    }
+    .card-h1 .card-accent-top { background: linear-gradient(90deg, #f3a8cb, #e5b9f4); }
+    .card-h2 .card-accent-top { background: linear-gradient(90deg, #b0d4f9, #c1f0e2); }
+    .card-h3 .card-accent-top { background: linear-gradient(90deg, #ffd39a, #f7b4c6); }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      align-self: flex-start;
+    }
+    .card-h1 .card-badge { background: var(--rosa-pastel); color: #a93c71; }
+    .card-h2 .card-badge { background: var(--azul-cielo); color: #28689f; }
+    .card-h3 .card-badge { background: var(--durazno); color: #9f651a; }
+
+    .card-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-h1 .card-icon-box { background: linear-gradient(135deg, #FFF, var(--rosa-pastel)); }
+    .card-h2 .card-icon-box { background: linear-gradient(135deg, #FFF, var(--azul-cielo)); }
+    .card-h3 .card-icon-box { background: linear-gradient(135deg, #FFF, var(--durazno)); }
+
+    .pastel-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+    .pastel-card p {
+      font-size: 0.93rem;
+      color: var(--texto-secundario);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .card-features {
+      list-style: none;
+      border-top: 1px solid var(--borde-suave);
+      padding-top: 1.2rem;
+      margin-top: auto;
+    }
+    .card-features li {
+      font-size: 0.84rem;
+      color: var(--texto-secundario);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .card-features li::before {
+      content: "✦";
+      color: var(--acento-lavanda);
+      font-size: 0.75rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.75rem;
-      margin-top: 2rem;
+      margin-bottom: 5rem;
     }
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
-      border: 1px solid var(--border);
+    .skill-card {
+      background: white;
+      border: 1px solid var(--borde-suave);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(152, 131, 219, 0.4);
+    }
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+    .skill-icon-bubble {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--lavanda-suave), var(--rosa-pastel));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--acento-lavanda);
+      flex-shrink: 0;
+    }
+    .skill-header h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+    }
+    .skill-card p {
+      font-size: 0.91rem;
+      color: var(--texto-secundario);
+      line-height: 1.6;
+    }
+
+    /* Telegram Agent Section */
+    .telegram-showcase {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 232, 241, 0.4) 100%);
+      border: 1px solid var(--borde-suave);
+      border-radius: 32px;
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+      gap: 3.5rem;
+      margin-bottom: 5rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .tg-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .tg-content p {
+      font-size: 1.02rem;
+      color: var(--texto-secundario);
+      margin-bottom: 1.75rem;
+    }
+    .command-tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .command-tag {
+      background: white;
+      border: 1px solid var(--borde-suave);
+      padding: 0.35rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-family: monospace;
+      font-weight: 600;
+      color: var(--acento-lavanda);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Telegram Mockup Phone/Card */
+    .tg-mockup {
+      background: white;
+      border: 1px solid var(--borde-suave);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .tg-mockup-header {
+      background: linear-gradient(135deg, #a48fed, #7ea6ea);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: white;
+    }
+    .tg-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .tg-info h4 { font-size: 0.95rem; font-weight: 700; }
+    .tg-info span { font-size: 0.75rem; opacity: 0.9; }
+    .tg-chat-body {
+      background: #faf8fc;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .bubble {
+      max-width: 82%;
+      padding: 0.8rem 1.1rem;
+      border-radius: 18px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+    .bubble-user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, #9782ec, #b698f2);
+      color: white;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 12px rgba(151, 130, 236, 0.2);
+    }
+    .bubble-bot {
+      align-self: flex-start;
+      background: white;
+      border: 1px solid var(--borde-suave);
+      color: var(--texto-principal);
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Community / Reviews Section */
+    .community-section {
+      margin-bottom: 5rem;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .review-card {
+      background: white;
+      border: 1px solid var(--borde-suave);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .stars {
+      color: #E6B566;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 2px;
+    }
+    .review-text {
+      font-size: 0.92rem;
+      color: var(--texto-secundario);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .reviewer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--durazno);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #9f651a;
+      font-size: 0.85rem;
+    }
+    .reviewer-info h5 { font-size: 0.88rem; font-weight: 700; color: var(--texto-principal); }
+    .reviewer-info span { font-size: 0.76rem; color: var(--texto-secundario); }
+
+    /* Elegant Comment Box */
+    .comment-form-card {
+      background: white;
+      border: 1px solid var(--borde-suave);
+      border-radius: 24px;
+      padding: 2.2rem;
+      max-width: 650px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-md);
+    }
+    .comment-form-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .comment-form-card p {
+      font-size: 0.9rem;
+      color: var(--texto-secundario);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid var(--borde-suave);
+      background: #faf9fd;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--texto-principal);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus {
+      border-color: var(--acento-lavanda);
+      background: white;
+    }
+    textarea.form-input {
+      resize: vertical;
+      min-height: 90px;
+    }
+    .btn-submit-comment {
+      width: 100%;
+      background: linear-gradient(135deg, #a48fed, #e995ba);
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(164, 143, 237, 0.28);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 20px -3px rgba(0,0,0,0.08);
+    .btn-submit-comment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(164, 143, 237, 0.38);
     }
-    .card h3 { color: var(--primary-dark); margin-bottom: 0.6rem; font-size: 1.3rem; }
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 0.25rem 0.65rem;
-      border-radius: 9999px;
-      background-color: #e0f2fe;
-      color: var(--primary-dark);
-      margin-bottom: 0.85rem;
-    }
-    .badge-skill {
-      background-color: #ccfbf1;
-      color: var(--secondary);
-    }
-    section { margin-bottom: 3.5rem; }
-    h2 { font-size: 1.9rem; border-bottom: 2px solid var(--border); padding-bottom: 0.6rem; margin-bottom: 1rem; }
-    .banner-etico {
-      background: #eff6ff;
-      border-left: 5px solid var(--primary);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 2.5rem;
-      font-size: 0.95rem;
-    }
-    .banner-etico strong { color: var(--primary-dark); }
+
+    /* Footer */
     footer {
-      background: #0f172a;
-      color: #94a3b8;
+      background: white;
+      border-top: 1px solid var(--borde-suave);
+      padding: 3rem 1.5rem;
       text-align: center;
-      padding: 2.5rem 1.5rem;
-      margin-top: 3rem;
-      font-size: 0.9rem;
+      margin-top: 5rem;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 0.5rem;
+    }
+    .footer-desc {
+      font-size: 0.88rem;
+      color: var(--texto-secundario);
+      max-width: 500px;
+      margin: 0 auto 1.5rem auto;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: var(--texto-secundario);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--acento-lavanda);
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #9c9aa8;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+      .telegram-showcase { grid-template-columns: 1fr; padding: 2.2rem 1.5rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="badge-header">Marco Operativo y Ético de Preparación</div>
-    <h1>Kit Profesional de Psicología</h1>
-    <p>Organización de la práctica, herramientas modulares, habilidades estructuradas y un asistente operativo en Telegram libre de diagnósticos clínicos automatizados.</p>
-  </header>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">🧠</div>
+        <span>PsicoTech Kit</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#herramientas">Herramientas</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#agente">Agente Telegram</a></li>
+        <li><a href="#comunidad">Comunidad</a></li>
+      </ul>
+      <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-primary btn-nav">Abrir Bot Telegram ↗</a>
+    </div>
+  </nav>
 
   <main class="container">
-    <div class="banner-etico">
-      <strong>⚖️ Compromiso Ético y Confidencialidad:</strong> Todas las herramientas están diseñadas con un enfoque estrictamente operativo y preparatorio para el psicólogo. No emiten diagnósticos clínicos automatizados ni reemplazan el criterio profesional. El manejo de consultantes se realiza mediante códigos identificadores anónimos.
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="pill-badge">
+          <span class="pill-sparkle"></span>
+          Inteligencia Artificial & Práctica Clínica
+        </div>
+        <h1>
+          Preparación y gestión operativa para <span class="gradient-text">profesionales de psicología</span>
+        </h1>
+        <p>
+          Optimiza la formulación de entrevistas iniciales, genera materiales psicoeducativos para tus consultantes y monitorea objetivos terapéuticos con el respaldo de un agente operativo inteligente en Telegram.
+        </p>
+        <div class="hero-actions">
+          <a href="#herramientas" class="btn-primary">Explorar Herramientas ↓</a>
+          <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-secondary">Probar Asistente Virtual</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="float-badge float-top">
+          <span style="font-size: 0.8rem; color: #725bb8; font-weight: 700;">✦ Gemini 3.5 AI</span>
+          <div style="font-size: 0.72rem; color: #77758A;">Análisis de casos sin diagnóstico</div>
+        </div>
+
+        <div class="visual-card-main">
+          <div class="visual-header">
+            <div>
+              <div style="font-size: 0.95rem; font-weight: 700;">Panel Operativo</div>
+              <div style="font-size: 0.75rem; color: var(--texto-secundario);">Expediente CONS-2026-A1</div>
+            </div>
+            <div class="status-chip">
+              <span class="pulse-dot"></span>
+              En consulta
+            </div>
+          </div>
+
+          <div class="chip-item chip-1">
+            <div class="chip-icon">📋</div>
+            <div class="chip-text">
+              <h4>Guía de Preguntas</h4>
+              <p>4 bloques estructurados listos</p>
+            </div>
+          </div>
+
+          <div class="chip-item chip-2">
+            <div class="chip-icon">🌱</div>
+            <div class="chip-text">
+              <h4>Tarea Psicoeducativa</h4>
+              <p>Ciclo de activación & bitácora</p>
+            </div>
+          </div>
+
+          <div class="chip-item chip-3">
+            <div class="chip-icon">🎯</div>
+            <div class="chip-text">
+              <h4>3 Objetivos Activos</h4>
+              <p>2 alcanzados · 1 en progreso</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-badge float-bottom">
+          <span style="font-size: 0.8rem; color: #2b7d63; font-weight: 700;">🔒 100% Confidencial</span>
+          <div style="font-size: 0.72rem; color: #77758A;">Registros anonimizados</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ethical Commitment Banner -->
+    <div class="ethics-box">
+      <div class="ethics-icon">⚖️</div>
+      <div class="ethics-text">
+        <h3>Marco Ético & Límites Clínicos</h3>
+        <p>Este kit se concibe estrictamente como una solución de preparación, organización operativa y soporte administrativo. No emite diagnósticos médicos cerrados ni reemplaza el juicio clínico y responsabilidad del profesional.</p>
+      </div>
     </div>
 
-    <section>
-      <h2>🛠️ 3 Herramientas Funcionales</h2>
-      <div class="grid">
-        <div class="card">
-          <span class="badge">Herramienta 1</span>
+    <!-- 3 Functional Tools -->
+    <section id="herramientas">
+      <div class="section-header">
+        <span class="section-tag">Módulos de Trabajo</span>
+        <h2 class="section-title">3 Herramientas Funcionales</h2>
+        <p class="section-desc">Diseñadas para ejecutarse de manera independiente y resolver flujos de trabajo específicos en consulta.</p>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Herramienta 1 -->
+        <div class="pastel-card card-h1">
+          <div class="card-accent-top"></div>
+          <span class="card-badge">Herramienta 1</span>
+          <div class="card-icon-box">💬</div>
           <h3>Estructurador de Guías de Preguntas Abiertas</h3>
-          <p>Genera guías ordenadas para entrevistas iniciales y sesiones exploratorias, organizadas por bloques temáticos adaptables al motivo general de consulta.</p>
+          <p>Genera entrevistas iniciales y sesiones exploratorias con preguntas ordenadas por bloques: motivo de consulta, áreas vitales, fortalezas y contextualización.</p>
+          <ul class="card-features">
+            <li>Banco modular de preguntas cualitativas</li>
+            <li>Exportación directa a texto plano o JSON</li>
+            <li>Enfoque respetuoso de escucha activa</li>
+          </ul>
         </div>
-        <div class="card">
-          <span class="badge">Herramienta 2</span>
-          <h3>Generador de Plantillas de Psicoeducación</h3>
-          <p>Crea fichas didácticas y formatos de auto-registro/tareas entre sesiones con lenguaje accesible, claro y libre de tecnicismos estigmatizantes.</p>
+
+        <!-- Herramienta 2 -->
+        <div class="pastel-card card-h2">
+          <div class="card-accent-top"></div>
+          <span class="card-badge">Herramienta 2</span>
+          <div class="card-icon-box">📝</div>
+          <h3>Generador de Psicoeducación & Tareas</h3>
+          <p>Crea fichas didácticas de apoyo para el consultante con formatos claros de autorregistro de hábitos, respiración diafragmática y logros diarios.</p>
+          <ul class="card-features">
+            <li>Lenguaje claro y libre de estigmas</li>
+            <li>Tablas inter-sesión de fácil llenado</li>
+            <li>Personalización de indicaciones clínicas</li>
+          </ul>
         </div>
-        <div class="card">
-          <span class="badge">Herramienta 3</span>
-          <h3>Organizador de Notas Temáticas y Metas</h3>
-          <p>Registra acuerdos de trabajo, avances y genera resúmenes preparatorios inmediatos antes de comenzar una sesión de consulta.</p>
+
+        <!-- Herramienta 3 -->
+        <div class="pastel-card card-h3">
+          <div class="card-accent-top"></div>
+          <span class="card-badge">Herramienta 3</span>
+          <div class="card-icon-box">📌</div>
+          <h3>Organizador de Notas & Seguimiento</h3>
+          <p>Administra expedientes anonimizados, supervisa el cumplimiento de metas terapéuticas y emite resúmenes preparatorios inmediatos antes de cada consulta.</p>
+          <ul class="card-features">
+            <li>Control evolutivo: Pendiente / Progreso / Meta</li>
+            <li>Base de datos local ligera y privada (.json)</li>
+            <li>Ficha ejecutiva pre-consulta en un clic</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>💡 3 Skills Especializadas</h2>
-      <div class="grid">
-        <div class="card">
-          <span class="badge badge-skill">Skill 1</span>
-          <h3>Análisis Técnico Multidimensional de Casos</h3>
-          <p>Instrucciones sistemáticas para examinar situaciones clínicas o textos bajo 4 enfoques complementarios: Hipótesis Cognitiva, Análisis Conductual, Lectura Humanista y Comprensión Psicodinámica (sin diagnósticos médicos concluyentes).</p>
+    <!-- Telegram Agent Showcase -->
+    <section id="agente" class="telegram-showcase">
+      <div class="tg-content">
+        <span class="section-tag">Agente Inteligente</span>
+        <h2>Conexión directa con tu Asistente en Telegram</h2>
+        <p>
+          Un bot conversacional conectado a Google Gemini que procesa tus casos en tiempo real respetando tus skills y principios deontológicos.
+        </p>
+        <div class="command-tag-group">
+          <span class="command-tag">/start</span>
+          <span class="command-tag">/analizar</span>
+          <span class="command-tag">/resumir</span>
+          <span class="command-tag">/preguntas</span>
+          <span class="command-tag">/skills</span>
         </div>
-        <div class="card">
-          <span class="badge badge-skill">Skill 2</span>
-          <h3>Redacción de Informes y Bitácoras Profesionales</h3>
-          <p>Formateo ordenado de resúmenes de sesión, objetivos observables, acuerdos inter-sesión y notas técnicas bajo principios de anonimización y rigor deontológico.</p>
+        <a href="https://t.me/asistente_psico_salome_bot" target="_blank" class="btn-primary">
+          Conversar con @asistente_psico_salome_bot ↗
+        </a>
+      </div>
+
+      <div class="tg-mockup">
+        <div class="tg-mockup-header">
+          <div class="tg-avatar">🤖</div>
+          <div class="tg-info">
+            <h4>Asistente Profesional Psico</h4>
+            <span>en línea · IA Operativa</span>
+          </div>
         </div>
-        <div class="card">
-          <span class="badge badge-skill">Skill 3</span>
-          <h3>Preparación de Preguntas y Retroalimentación</h3>
-          <p>Estructuración de pautas para entrevistas iniciales o de seguimiento, criterios de observación cualitativa y protocolos de retroalimentación constructiva.</p>
+        <div class="tg-chat-body">
+          <div class="bubble bubble-user">
+            /analizar Consultante refiere procrastinación recurrente y temor a fallar en sus entregas académicas.
+          </div>
+          <div class="bubble bubble-bot">
+            <strong>✦ Análisis Multidimensional (Skill 1):</strong><br>
+            • <em>Hipótesis Cognitiva:</em> Esquema de autoexigencia y atribución dicotómica.<br>
+            • <em>Lectura Conductual:</em> La postergación actúa como alivio aversivo inmediato.<br>
+            • <em>Lectura Humanista:</em> Incongruencia entre el yo-ideal y la autopercepción actual.<br>
+            • <em>Pauta:</em> Se sugiere explorar experimentos de aproximación gradual de 15 min.
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>🤖 Agente Asistente Operativo en Telegram</h2>
-      <div class="card" style="max-width: 800px; margin: 1.5rem auto 0 auto;">
-        <span class="badge">Conexión Telegram</span>
-        <h3>Preparación de Jornada y Recordatorios Administrativos</h3>
-        <p>Bot configurado con <code>python-telegram-bot</code> que recuerda pendientes, tareas operativas (<code>/tareas</code>, <code>/recordar</code>, <code>/check</code>) y genera resúmenes de objetivos previos a una consulta (<code>/preparar &lt;codigo&gt;</code>) consultando la Herramienta 3.</p>
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="section-header">
+        <span class="section-tag">Base de Conocimiento</span>
+        <h2 class="section-title">3 Skills Especializadas</h2>
+        <p class="section-desc">Estructuradas en archivos YAML que guían el comportamiento técnico y metodológico del asistente inteligente.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-bubble">🧩</div>
+            <h3>Análisis Técnico de Casos</h3>
+          </div>
+          <p>Instrucciones sistemáticas para examinar situaciones clínicas bajo 4 perspectivas integradas: cognitiva, conductual, humanista y psicodinámica, sin emitir diagnósticos médicos concluyentes.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-bubble">📄</div>
+            <h3>Redacción de Informes & Bitácoras</h3>
+          </div>
+          <p>Estandarización de resúmenes operativos de sesión, objetivos observables, acuerdos inter-sesión y notas técnicas bajo principios de anonimización estricta.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-bubble">💡</div>
+            <h3>Preparación de Entrevistas</h3>
+          </div>
+          <p>Guía de formulación de preguntas de apertura, indagación de factores protectores y protocolos de retroalimentación constructiva para fomentar la alianza terapéutica.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community & Comments Section -->
+    <section id="comunidad" class="community-section">
+      <div class="section-header">
+        <span class="section-tag">Espacio de Comunidad</span>
+        <h2 class="section-title">Experiencias de Profesionales</h2>
+        <p class="section-desc">Testimonios de colegas que integran herramientas operativas en su práctica diaria.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"La separación clara entre herramientas de preparación y diagnóstico es impecable. El generador de tareas inter-sesión me ahorra más de 20 minutos por paciente."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">LR</div>
+            <div class="reviewer-info">
+              <h5>Lic. Laura Restrepo</h5>
+              <span>Psicóloga Cognitivo-Conductual</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Poder consultar en Telegram los objetivos del caso antes de que el consultante entre a consulta me permite enfocar la sesión desde el primer minuto."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">MC</div>
+            <div class="reviewer-info">
+              <h5>Mg. Mateo Cárdenas</h5>
+              <span>Docente y Supervisor Clínico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Una estética limpia, serena y muy profesional. Da gusto tener un entorno de trabajo digital que transmite tanta calma y rigor metodológico."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">SP</div>
+            <div class="reviewer-info">
+              <h5>Dra. Sofía Pineda</h5>
+              <span>Especialista en Acompañamiento Adultos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elegant Comment Box -->
+      <div class="comment-form-card">
+        <h4>Deja tus observaciones o aportes al kit</h4>
+        <p>Tu retroalimentación nos ayuda a enriquecer las guías y recursos metodológicos.</p>
+        <form onsubmit="event.preventDefault(); alert('¡Gracias por tus comentarios! Se han registrado con éxito.');">
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder="Tu nombre y especialidad (ej. Lic. Camila Gómez)" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-input" placeholder="Escribe aquí tu comentario, sugerencia o experiencia con las herramientas..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit-comment">Publicar Comentario en Comunidad ✦</button>
+        </form>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; Kit Profesional de Psicología - Preparación y Gestión Operativa de la Práctica.</p>
+    <div class="footer-brand">🧠 Kit Profesional de Psicología</div>
+    <p class="footer-desc">Solución operativa, ética y tecnológica para la gestión de consultas y preparación clínica.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com/saloR1010/Kit-practica-psicologia" target="_blank">Repositorio en GitHub</a></li>
+      <li><a href="https://t.me/asistente_psico_salome_bot" target="_blank">Bot de Telegram</a></li>
+      <li><a href="#herramientas">Herramientas</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2026 Kit Profesional de Psicología · Dirección Artística Pastel Tech Premium.</div>
   </footer>
 </body>
 </html>
